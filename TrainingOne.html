@@ -87,6 +87,11 @@ function CreateObject() {
     if(!arguments[1]) this.age = 10;
     else this.age = arguments[1];
 
+    if(arguments[2]) {
+      alert('Слишком много аргументов');
+      return;
+    }
+
 }
 
 let obj = new CreateObject();
