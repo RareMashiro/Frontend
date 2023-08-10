@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+'use strict'
+/*
+// Задание 2
+let head = {
+  glasses: '1 glasses'
+};
+
+let table = {
+  pen: 3
+};
+
+let bed = {
+  sheet: 1,
+  pillow: 2
+};
+
+let pockets = {
+  money: 2000
+};
+
+table.__proto__ = head;
+bed.__proto__ = table;
+pockets.__proto__ = bed;
+
+alert(pockets.glasses);
+
+// Задание 3
+// Запись будет произведена в rabbit по правилу использования this
+
+// Задание 4
+
+let hamster = {
+  stomach: [],
+  eat(food) {
+    this.stomach.push(food);
+  }
+};
+
+let lazy = {
+  __proto__: hamster
+};
+
+let speedy = {
+  __proto__: hamster
+};
+
+speedy.eat('Mushroom');
+alert(speedy.stomach);
+alert(lazy.stomach.length);
+
+// Выводится один и тот же массив stomach в объекте hamster
+
+// Задание 5
+
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
+};
+
+let rabbit = new Rabbit();
+
+Rabbit.prototype = {};
+
+alert(rabbit.eats);
+// Вопрос 1: будет выведено undefined, т.к. свойство prototype обнулено
+// Неверно. обнуление свойства prototype повлияет только на новые созданные конструктором объекты, но не на старые
+// Вопрос 2: будет выведено false, т.к. свойство eats находится в конструкторе, и rabbit прототипно наследует его
+// Верно
+// Вопрос 3: будет выведено true, т.к. rabbit не содержит eats
+// Верно
+// Вопрос 4: будет выведено undefined, т.к. свойство не существует ни в rabbit, ни в прототипе
+// Верно
+*/
+
+// Задание 6
+
+function CreateObject() {
+    
+    if(!arguments[0]) this.name = 'example';
+    else this.name = arguments[0];
+    
+    if(!arguments[1]) this.age = 10;
+    else this.age = arguments[1];
+
+}
+
+let obj = new CreateObject();
+let obj2 = new obj.constructor('Ann', 24);
+
+alert(JSON.stringify(obj2, null, 2));
+
+// Выполнено
+
+</script>
+</body>
+</html>
