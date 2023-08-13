@@ -75,7 +75,7 @@ alert(rabbit.eats);
 // Верно
 // Вопрос 4: будет выведено undefined, т.к. свойство не существует ни в rabbit, ни в прототипе
 // Верно
-*/
+
 
 // Задание 6
 
@@ -107,6 +107,25 @@ alert(JSON.stringify(obj2, null, 2));
 
 // Выполнено
 
+
+// Задание 7
+// Добавить в прототип функций метод
+let date = Date.now();
+
+function f() {
+  alert(`hello from ${Math.round((Date.now() - date) / 1000)}s`);
+}
+
+if(!Function.prototype.defer) {
+  Function.prototype.defer = function(delay) {
+    let id = setTimeout(() => f(), delay*3)
+  }
+}
+
+f.defer(1000);
+*/
+
+// Задание 8
 </script>
 </body>
 </html>
