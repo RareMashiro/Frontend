@@ -27,7 +27,7 @@ table.__proto__ = head;
 bed.__proto__ = table;
 pockets.__proto__ = bed;
 
-alert(pockets.glasses);
+alert( pockets.glasses );
 
 // Задание 3
 // Запись будет произведена в rabbit по правилу использования this
@@ -50,8 +50,8 @@ let speedy = {
 };
 
 speedy.eat('Mushroom');
-alert(speedy.stomach);
-alert(lazy.stomach.length);
+alert( speedy.stomach );
+alert( lazy.stomach.length );
 
 // Выводится один и тот же массив stomach в объекте hamster
 
@@ -66,7 +66,7 @@ let rabbit = new Rabbit();
 
 Rabbit.prototype = {};
 
-alert(rabbit.eats);
+alert( rabbit.eats );
 // Вопрос 1: будет выведено undefined, т.к. свойство prototype обнулено
 // Неверно. обнуление свойства prototype повлияет только на новые созданные конструктором объекты, но не на старые
 // Вопрос 2: будет выведено false, т.к. свойство eats находится в конструкторе, и rabbit прототипно наследует его
@@ -88,7 +88,7 @@ function CreateObject() {
     else this.age = arguments[1];
 
     if(arguments[2]) {
-      alert('Слишком много аргументов');
+      alert( 'Слишком много аргументов' );
       return;
     }
 
@@ -103,7 +103,7 @@ let obj2 = new obj.constructor('Ann', 24);
 
 // Допустим, данные вводятся пользователем
 
-alert(JSON.stringify(obj2, null, 2));
+alert( JSON.stringify(obj2, null, 2) );
 
 // Выполнено
 
@@ -113,7 +113,7 @@ alert(JSON.stringify(obj2, null, 2));
 let date = Date.now();
 
 function f() {
-  alert(`hello from ${Math.round((Date.now() - date) / 1000)}s`);
+  alert( `hello from ${Math.round((Date.now() - date) / 1000)}s` );
 }
 
 if(!Function.prototype.defer) {
@@ -123,9 +123,30 @@ if(!Function.prototype.defer) {
 }
 
 f.defer(1000);
-*/
+
 
 // Задание 8
+// Добавить в прототип декоратор
+
+let date = Date.now();
+
+function f(a, b) {
+  alert(`result: ${a + b}. Calculating time: ${Date.now() - date}`);
+}
+
+if(!Function.prototype.defer) {
+  Function.prototype.defer = function wrapper(delay) {
+    return function(a, b) {
+      let id = setTimeout(() => f(a, b), delay);
+    }
+  }
+}
+
+f.defer(1000)(9, 12);
+*/
+
+// Задание 9
+
 </script>
 </body>
 </html>
