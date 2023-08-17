@@ -55,12 +55,31 @@ class Clock {
 
   start() {
     this.render();
-    this.timer = setInterval(() => this.render, 1000);
+    this.timer = setInterval(() => this.render(), 1000);
   }
 
 }
 
-let time = new Clock({template: 'h:m:s'});
+//let time = new Clock({template: 'h:m:s'});
+//time.start();
+
+// Задание 3
+// Создать класс-наследник ExtendedClock с параметром precision
+
+class ExtendedClock extends Clock {
+  constructor(options) {
+    super(options);
+    let { precision = 1000 } = options;
+    this.precision = precision;
+  }
+
+  start() {
+    this.render();
+    this.timer = setInterval(() => { this.render(); console.log(this.precision) }, this.precision);
+  }
+}
+
+let time = new ExtendedClock({template: 'h:m:s', precision: 1500});
 time.start();
 
 </script>
