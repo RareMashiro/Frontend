@@ -4,84 +4,66 @@
 <script>
 
 'use strict'
-/*
-class Human {
-  constructor(name, sname) {
-    this.name = name;
-    this.sname = sname;
+
+// Task 1. Level: easy
+// To Be Or Not To Be
+
+var expect = function(val) {
+  let obj = {
+    toBe(b) {
+	    try {
+        if(val === b) return true;
+        else throw new Error('Not Equal');
+
+      } catch(err) {
+	      throw err.message;
+
+      }
+	  },
+	
+	  notToBe(b) {
+	    try {
+        if(val !== b) return true;
+	      throw new Error('Equal');
+
+      } catch(err) {
+        throw err.message;
+
+      }
+	  }
   }
-
-  get Hello() {
-    alert(`Hello ${this.name} ${this.sname}!`);
-  }
-}
-
-let scientist = new Human('Robert', 'Oppenheimer');
-
-scientist.Hello;
-*/
-
-// Задание 1
-// Переписать функцию 'Часы' в класс
-
-class Clock {
-  constructor({template}) {
-    this.template = template;
-  }
-
-  render() {
-    let date = new Date();
   
-    let hours = date.getHours();
-    if (hours < 10) hours = '0' + hours;
+  return obj;
+};
 
-    let mins = date.getMinutes();
-    if (mins < 10) mins = '0' + mins;
+expect(1).toBe(4);
+expect(2).toBe(2);
+expect(2).notToBe(5);
+expect(5).notToBe(5);
 
-    let secs = date.getSeconds();
-    if (secs < 10) secs = '0' + secs;
+// Task 2. Level: easy
+// ArrayWrapper
+/*
+var ArrayWrapper = function(nums) {
+    this.nums = nums;
+};
 
-    let output = this.template
-      .replace('h', hours)
-      .replace('m', mins)
-      .replace('s', secs);
-
-    console.log(output);
-  }
-
-  stop() {
-    clearInterval(this.timer);
-  }
-
-  start() {
-    this.render();
-    this.timer = setInterval(() => this.render(), 1000);
-  }
-
+ArrayWrapper.prototype.valueOf = function() {
+    let result = this.nums.reduce((sum, curr) => sum + curr, 0);
+    return result
 }
 
-//let time = new Clock({template: 'h:m:s'});
-//time.start();
-
-// Задание 2
-// Создать класс-наследник ExtendedClock с параметром precision
-
-class ExtendedClock extends Clock {
-  constructor(options) {
-    super(options);
-    let { precision = 1000 } = options;
-    this.precision = precision;
-  }
-
-  start() {
-    this.render();
-    this.timer = setInterval(() => { this.render(); console.log(this.precision) }, this.precision);
-  }
+ArrayWrapper.prototype.toString = function() {
+    return JSON.stringify(this.nums);
 }
 
-let time = new ExtendedClock({template: 'h:m:s', precision: 1500});
-time.start();
-
+let obj1 = new ArrayWrapper([1, 2]);
+let obj2 = new ArrayWrapper([4, 5]);
+alert(obj1.arr)
+console.log(obj1 + obj2);
+console.log(String(obj1));
+console.log(String(obj2));
+*/
 </script>
 </body>
 </html>
