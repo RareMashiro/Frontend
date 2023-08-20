@@ -64,6 +64,29 @@ class Clock {
 //time.start();
 
 // Задание 2
+// Исправить ошибку
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  
+  }
+}
+
+class Rabbit extends Animal {
+  constructor(name, age) {
+    super(name, age);
+    this.created = Date.now();
+
+  }
+}
+
+let rabbit = new Rabbit('Lily', 19);
+alert(rabbit.name);
+alert(rabbit.age);
+// После добавления в конструктор наследника super все работает
+
+// Задание 3
 // Создать класс-наследник ExtendedClock с параметром precision
 
 class ExtendedClock extends Clock {
