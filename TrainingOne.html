@@ -5,26 +5,6 @@
 
 'use strict'
 
-class Animal {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
-  
-  }
-}
-
-class Rabbit extends Animal {
-  constructor(name, age) {
-    super(name, age);
-    this.created = Date.now();
-
-  }
-}
-
-let rabbit = new Rabbit('Lily', 19);
-alert(rabbit.name);
-alert(rabbit.age);
-
 </script>
 </body>
 </html>
