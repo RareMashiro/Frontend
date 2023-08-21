@@ -5,6 +5,45 @@
 
 'use strict'
 
+
+
+// Task 3. Level: easy
+// Clear scheduled function
+// Solution 1
+/*
+var cancellable = function(fn, args, t) {
+    let isCanceled = false;
+    
+    let start = setTimeout(() => {
+        isCanceled = true;
+        return alert(`[{time: ${t}, returned: ${fn(...args)}}]`);
+    }, t);
+    
+    return function cancelFn(cancelT) {
+        setTimeout(() => {
+            clearTimeout(start);
+            if(isCanceled === false) return alert('[]');
+        }, cancelT)
+    }
+};
+
+//cancellable((x) => x * 5, [2], 20)(100);
+cancellable((x) => x ** 2, [2], 100)(500);
+//cancellable((x1, x2) => x1 * x2, [2, 4], 3000, 2000);
+*/
+// Solution 2
+
+const concellable = function(fn, args, t) {
+    const cancelFn = function() {
+        clearTimeout(id);
+    };
+
+    const id = setTimeout(() => fn(...args), t);
+
+    return cancelFn ;
+
+}
+
 </script>
 </body>
 </html>
