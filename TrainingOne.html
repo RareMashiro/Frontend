@@ -30,15 +30,15 @@ let coffeeMachine = new CoffeeMachine(100);
 coffeeMachine.waterAmount = -10;
 */
 // Свойство только для чтения power
-
+/*
 class CoffeeMachine {
-    constructor(power) {
-        this._power = power
-    }
+  constructor(power) {
+    this._power = power
+  }
 
-    get power() {
-        return this._power;
-    }
+  get power() {
+    return this._power;
+  }
 }
 
 let coffeeMachine = new CoffeeMachine(100);
@@ -46,6 +46,29 @@ let coffeeMachine = new CoffeeMachine(100);
 alert(`Мощность: ${coffeeMachine.power}W`);
 
 coffeeMachine.power = 25; // Ошибка, отсутствует сеттер
+*/
+// Приватное свойство #waterLimit
+
+class CoffeeMachine {
+  
+  #waterLimit = 200;
+  info;
+
+  #checkWater(value) {
+    if(value < 0) throw new Error("Отрицательный уровень воды");
+    if(value > this.#waterLimit) throw new Error("Слишком много воды");
+    else return true
+  }
+
+  level(amount) {
+    this.#waterLimit = amount;
+    alert(this.#waterLimit);
+  }
+}
+
+let chain = new CoffeeMachine();
+chain.level(150);
+//chain.#checkWater();
 
 </script>
 </body>
