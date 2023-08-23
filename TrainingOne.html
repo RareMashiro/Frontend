@@ -5,25 +5,7 @@
 
 'use strict'
 
-// Task 5. Level: easy
-// Sort By
 
-let arr = [[3, 4], [5, 2], [10, 1]];
-let fn = (x) => x[1];
-
-// let arr = [{"x": 1}, {"x": 0}, {"x": -1}];
-// let fn = (obj) => obj.x;
-
-// Функция получает на вход массив и функцию fn (не результат - ссылка)
-function sortBy(arr, fn) {
-  alert(JSON.stringify(arr.sort((a, b) => {
-    if(fn(a) > fn(b)) return 1;
-	if(fn(a) == fn(b)) return 0;
-	if(fn(a) < fn(b)) return -1;
-  })))
-}
-
-sortBy(arr, fn);
 
 </script>
 </body>
