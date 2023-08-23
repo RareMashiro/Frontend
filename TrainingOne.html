@@ -5,70 +5,25 @@
 
 'use strict'
 
-// Приватное свойство _wateAmount
-/*
-class CoffeeMachine {
-  _waterAmount = 0;
+// Task 5. Level: easy
+// Sort By
 
-  set waterAmount(value) {
-    if (value < 0) throw new Error("Отрицательное количество воды");
-    this._waterAmount = value;
-  }
+let arr = [[3, 4], [5, 2], [10, 1]];
+let fn = (x) => x[1];
 
-  get waterAmount() {
-    return this._waterAmount;
-  }
+// let arr = [{"x": 1}, {"x": 0}, {"x": -1}];
+// let fn = (obj) => obj.x;
 
-  constructor(power) {
-    this._power = power;
-  }
-
+// Функция получает на вход массив и функцию fn (не результат - ссылка)
+function sortBy(arr, fn) {
+  alert(JSON.stringify(arr.sort((a, b) => {
+    if(fn(a) > fn(b)) return 1;
+	if(fn(a) == fn(b)) return 0;
+	if(fn(a) < fn(b)) return -1;
+  })))
 }
 
-let coffeeMachine = new CoffeeMachine(100);
-
-coffeeMachine.waterAmount = -10;
-*/
-// Свойство только для чтения power
-/*
-class CoffeeMachine {
-  constructor(power) {
-    this._power = power
-  }
-
-  get power() {
-    return this._power;
-  }
-}
-
-let coffeeMachine = new CoffeeMachine(100);
-
-alert(`Мощность: ${coffeeMachine.power}W`);
-
-coffeeMachine.power = 25; // Ошибка, отсутствует сеттер
-*/
-// Приватное свойство #waterLimit
-
-class CoffeeMachine {
-  
-  #waterLimit = 200;
-  info;
-
-  #checkWater(value) {
-    if(value < 0) throw new Error("Отрицательный уровень воды");
-    if(value > this.#waterLimit) throw new Error("Слишком много воды");
-    else return true
-  }
-
-  level(amount) {
-    this.#waterLimit = amount;
-    alert(this.#waterLimit);
-  }
-}
-
-let chain = new CoffeeMachine();
-chain.level(150);
-//chain.#checkWater();
+sortBy(arr, fn);
 
 </script>
 </body>
