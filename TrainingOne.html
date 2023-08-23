@@ -5,32 +5,18 @@
 
 'use strict'
 
-// Task 6
-// Create reduce method
+// Task 4
+// Substring check
 
 // Solution 1 
-var reduce = function(nums, fn, init) {
-  let val = 0;
 
-  for(let i = 0; i < nums.length; i++) {
-    val = fn(init, nums[i]);
-    init = val;
-  }
-
-  alert(val);
+var substr = function(s) {
+  return alert(s.repeat(2).slice(1, -1).includes(s));
 }
 
-reduce([1, 2, 3, 4], function sum(accum, curr) {return accum + curr;}, 0);
+substr('abab');
+substr('acab');
 
-// Solution 2
-var reduce = function(nums, fn, init) {
-  nums.forEach(element => {
-    init = fn(init, element);
-  });
-  alert(init);
-}
-
-reduce([1, 2, 3, 4], function sum(accum, curr) {return accum + curr;}, 0);
 
 </script>
 </body>
