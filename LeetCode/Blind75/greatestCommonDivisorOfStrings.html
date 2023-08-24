@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<script>
+
+'use strict'
+/*
+* Blind 75. Level: easy
+* Greatest Common Divisor of Strings
+
+* Constraints
+* 1 <= str1.length, str2.length <= 1000
+* str1, str2 uppercase only
+
+* Ex 1
+* Input: str1 = "ABCABC", str2 = "ABC"
+* Output: "ABC"
+
+* Ex 2
+* Input: str1 = "ABABAB", str2 = "ABAB"
+* Output: "AB"
+
+* Ex 3
+* Input: str1 = "LEET", str2 = "CODE"
+* Output: ""
+*/
+
+const str1 = 'ABABABABAB';
+const str2 = 'ABAB';
+
+function divide(str1, str2) {
+  const min = Math.min(str1.length, str2.length);
+  let result = '';
+  let i = 1;
+  
+  while(str1.slice(0, i) === str2.slice(0, i)) {
+    result = str1.slice(0, i);
+	i++;
+  }
+  
+  if(str1.slice(0, str1.length/2) !== result) result = result.slice(0, result.length/2);
+  alert(result);
+}
+
+divide(str1, str2);
+
+</script>
+</body>
+<html>

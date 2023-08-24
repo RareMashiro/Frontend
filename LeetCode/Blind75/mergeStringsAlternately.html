@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<script>
+
+'use strict'
+/*
+* Blind 75. Level: easy
+* Merge Strings Alternately
+
+* Constraints
+* 1 <= word1.length, word2.length <= 100
+* word1, word2 lowercase only
+
+* Ex 1 (completed!)
+* Input: word1 = "abc", word2 = "pqrdff"
+* Output: apbqcr
+
+* Ex 2 (completed!)
+* Input: word1 = "ab", word2 = "pqrs"
+* Output: apbqrs
+
+* Ex 3 (completed!)
+* Input: word1 = "abcd", let word2 = "pq"
+* Output: apbqcd
+*/
+
+const word1 = "abcd";
+const word2 = "pq";
+
+function combine(word1, word2) {
+  word1 = word1.split('');
+  word2 = word2.split('');
+  
+  let min = Math.min(word1.length, word2.length);
+  let result = [];
+  let i = 0;
+  
+  while(i < min) {
+    result.push(word1[i], word2[i]);
+	i++;
+  }
+  
+  alert(result.concat(word1.slice(min), word2.slice(min)));
+}
+
+combine(word1, word2);
+
+</script>
+</body>
+<html>
