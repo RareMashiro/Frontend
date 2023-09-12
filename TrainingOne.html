@@ -5,98 +5,32 @@
 
 'use strict'
 
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-}
+let div = document.createElement('div');
 
-class BinaryTree {
-  constructor() {
-    this.root = null;
-  }
+div.style.height = '200px';
+div.style.width = '200px';
+div.style.overflow = 'auto';
+div.style.border = '5px solid black';
+div.style.fontSize = '22px';
 
-  preOrder(node, callback) {
-    if(!node) return;
-    if(callback) {
-      callback(node);
-    } 
+div.textContent = `А и сильные, 
+могучие богатыри на славной руси. 
+Не скакать врагам по нашей земле. 
+Не топтать их коням землю русскую. 
+Не затмить им солнце наше красное. 
+Век стоит Русь, не шатается. 
+И века простоит, не шелохнется.`
 
-    this.preOrder(node.left, callback);
-    this.preOrder(node.right, callback);
-  }
+div.style.textAlign = 'justify';
+div.style.color = 'black';
 
-  inOrder(node, callback) {
+document.body.prepend(div);
 
-  }
+let result = div.offsetWidth - div.clientLeft - div.clientWidth;
 
-  postOrder(node, callback) {
+let id = setTimeout(() => div.remove(), 2000);
 
-  }
-
-
-  traverseBFS(callback, method) {
-    if(method === 'preOrder') {
-      return this.preOrder(this.root, callback);
-    }
-
-    if(method === 'inOrder') {
-      return this.inOrder(this.root, callback);
-    }
-
-    if(method === 'postOrder') {
-      return this.postOrder(this.root, callback);
-    }
-  }
-
-  traverseDFS() {
-
-  }
-
-  add(value) {
-    const newNode = new Node(value);
-
-    if(!this.root) {
-      this.root = newNode;
-      return;
-    }
-
-    let curr = this.root;
-
-    while(curr) {
-      if(newNode.value < curr.value) {
-        if(!curr.left) {
-          curr.left = newNode;
-          return;
-        }
-
-        curr = curr.left;
-      } else {
-        if(!curr.right) {
-          curr.right = newNode;
-          return;
-        }
-
-        curr = curr.right;
-      }
-    }
-  }
-}
-
-const myTree = new BinaryTree();
-myTree.add(8);
-myTree.add(7);
-myTree.add(9);
-myTree.add(5);
-myTree.add(10);
-myTree.add(20);
-myTree.add(6);
-myTree.add(2);
-myTree.add(11);
-
-myTree.traverseBFS((node) => console.log(node.value), 'preOrder');
+console.log(result);
 
 </script>
 </body>
