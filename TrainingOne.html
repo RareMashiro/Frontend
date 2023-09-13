@@ -5,32 +5,43 @@
 
 'use strict'
 
-let div = document.createElement('div');
+class MyError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = this.constructor.name;
+  }
+}
 
-div.style.height = '200px';
-div.style.width = '200px';
-div.style.overflow = 'auto';
-div.style.border = '5px solid black';
-div.style.fontSize = '22px';
+class ValidationError extends MyError {}
 
-div.textContent = `А и сильные, 
-могучие богатыри на славной руси. 
-Не скакать врагам по нашей земле. 
-Не топтать их коням землю русскую. 
-Не затмить им солнце наше красное. 
-Век стоит Русь, не шатается. 
-И века простоит, не шелохнется.`
+class PropertyRequiredError extends ValidationError {
+  constructor(property) {
+    super('Не хватает свойства: ' + property);
+    this.property = property;
+  }
+}
 
-div.style.textAlign = 'justify';
-div.style.color = 'black';
+function readUser(json) {
+  let user = JSON.parse(json);
 
-document.body.prepend(div);
+  if(!user.name) throw new PropertyRequiredError('name');
+  if(!user.age) throw new PropertyRequiredError('age');
+}
 
-let result = div.offsetWidth - div.clientLeft - div.clientWidth;
 
-let id = setTimeout(() => div.remove(), 2000);
-
-console.log(result);
+try {
+  let user = readUser('{ "age": 34 }');
+} catch(err) {
+  if(err instanceof ValidationError) {
+    alert(err.message);
+    alert(err.name);
+  } else if(err instanceof SyntaxError) {
+    alert(err.message);
+    alert(err.name);
+  } else {
+    throw err;
+  }
+}
 
 </script>
 </body>
