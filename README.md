@@ -1,2 +1,2 @@
 # Frontend
-This is my fronend rep
+This is my frontend rep
