@@ -2,7 +2,7 @@ body {
   color: #8f8f8f;
   font: 12px Tahoma, sans-serif;
   background-color: #f8f8f8;
-  border-top: 5px solid #7e7e7e;
+  border-top: 5px solid #fff;
   margin: 0;
 }
 
@@ -16,11 +16,17 @@ input[type="text"] {
 }
 
 button {
-  color: #fff;
-  background-color: #7e7e7e;
+  color: #7e7e7e;
+  background-color: #fff;
   border: none;
   height: 32px;
   font-family: 'Oswald', sans-serif;
+}
+
+button:hover {
+  background-color: #7e7e7e;
+  color: #fff;
+  cursor: pointer;
 }
 
 p {
@@ -57,11 +63,12 @@ nav li {
 
 .top-menu li {
   display: inline-block;
+  border-right: 1px solid #e7e7e7;
   padding: 10px 30px;
   margin: 0;
 }
 
-.top-menu li.active {
+.top-menu li:hover, .top-menu a:hover {
   background-color: #7e7e7e;
   color: #fff;
 }
@@ -86,13 +93,41 @@ h1 {
   padding: 0 10px 5px;
 }
 
-#logo {
+.logo {
+  display: inline-block;
+}
+
+#logo-pic {
   border: 4px solid #7e7e7e;
+}
+
+#logo-name {
+  position: relative;
+  bottom: 25px;
+  background-color: #b2b2b2;
+  font: 30px 'Oswald', sans-serif;
+  padding: 10px;
+  text-align: center;
+  color:#fff;
 }
 
 aside {
   float: left;
   width: 250px;
+}
+
+#marketplace > h2 {
+  background-color: #7e7e7e;
+  color: #fff;
+  padding: 10px;
+}
+
+#marketplace > div{
+  width: 240px;
+  height: 180px;
+  border: 5px solid #7e7e7e;
+  background-color: #e7e7e7;
+
 }
 
 section {
@@ -117,3 +152,9 @@ section {
 .aside-menu a {
   color: #8f8f8f;
 }
+
+.aside-menu li:hover, .aside-menu a:hover {
+  background-color: #7e7e7e;
+  color: #fff
+}
+
