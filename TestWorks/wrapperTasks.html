@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div>
+  Привет Мир!
+</div>
+<script>
+
+function work(a, b) {
+  alert( a + b);
+
+}
+
+function spy(func) {
+  wrapper.calls = [];
+  
+  function wrapper() {
+  wrapper.calls.push(Array.from(arguments));
+  return func.call(this, ...arguments);
+  
+  }
+  return wrapper;
+
+}
+
+let job = spy(work);
+
+job(1, 2);
+job(4, 6);
+
+//alert(job.calls);
+
+let mas = [];
+
+for(let args of job.calls) {
+  mas.push('call: ' + args.join());
+
+}
+
+alert(mas);
+
+</script>
+</body>
+</html>

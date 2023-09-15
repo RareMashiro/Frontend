@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+'use strict'
+/*
+class Human {
+  constructor(name, sname) {
+    this.name = name;
+    this.sname = sname;
+  }
+
+  get Hello() {
+    alert(`Hello ${this.name} ${this.sname}!`);
+  }
+}
+
+let scientist = new Human('Robert', 'Oppenheimer');
+
+scientist.Hello;
+*/
+
+// Задание 1
+// Переписать функцию 'Часы' в класс
+
+class Clock {
+  constructor({template}) {
+    this.template = template;
+  }
+
+  render() {
+    let date = new Date();
+  
+    let hours = date.getHours();
+    if (hours < 10) hours = '0' + hours;
+
+    let mins = date.getMinutes();
+    if (mins < 10) mins = '0' + mins;
+
+    let secs = date.getSeconds();
+    if (secs < 10) secs = '0' + secs;
+
+    let output = this.template
+      .replace('h', hours)
+      .replace('m', mins)
+      .replace('s', secs);
+
+    console.log(output);
+  }
+
+  stop() {
+    clearInterval(this.timer);
+  }
+
+  start() {
+    this.render();
+    this.timer = setInterval(() => this.render(), 1000);
+  }
+
+}
+
+//let time = new Clock({template: 'h:m:s'});
+//time.start();
+
+// Задание 2
+// Исправить ошибку
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  
+  }
+}
+
+class Rabbit extends Animal {
+  constructor(name, age) {
+    super(name, age);
+    this.created = Date.now();
+
+  }
+}
+
+let rabbit = new Rabbit('Lily', 19);
+alert(rabbit.name);
+alert(rabbit.age);
+// После добавления в конструктор наследника super все работает
+
+// Задание 3
+// Создать класс-наследник ExtendedClock с параметром precision
+
+class ExtendedClock extends Clock {
+  constructor(options) {
+    super(options);
+    let { precision = 1000 } = options;
+    this.precision = precision;
+  }
+
+  start() {
+    this.render();
+    this.timer = setInterval(() => { this.render(); console.log(this.precision) }, this.precision);
+  }
+}
+
+let time = new ExtendedClock({template: 'h:m:s', precision: 1500});
+time.start();
+
+</script>
+</body>
+</html>

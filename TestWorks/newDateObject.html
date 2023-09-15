@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+/*
+let time = new Date(2023, 5, 28);
+
+let day = time.getDay();
+
+switch (day) {
+  case 0:
+    alert("Воскресенье");
+    break;
+  case 1:
+    alert("Понедельник");
+    break;
+  case 2:
+    alert("Вторник");
+    break;
+  case 3:
+    alert("Среда");
+    break;
+  case 4:
+    alert("Четверг");
+    break;
+  case 5:
+    alert("Пятница");
+    break;
+  case 6:
+    alert("Суббота");
+    break;
+}
+
+
+let time = new Date(Date.parse("2012-02-20T03:12:00"))
+
+alert( time );
+
+let time2 = new Date(2012, 1, 20, 3, 12);
+
+alert( time2 );
+
+// задание 4
+let date = new Date(2015, 0, 2);
+
+function getDateAgo (date, num) {
+  let date2 = new Date(date);
+  date2.setDate(date2.getDate() - num);
+  return date2.getDate();
+}
+
+alert( getDateAgo(date, 1));
+alert( getDateAgo(date, 2));
+alert( getDateAgo(date, 365));
+
+
+// задание 5
+
+function getLastDayOfMonth(year, month) {
+  let date = new Date(year, month + 1, 0);
+  return date.getDate();
+}
+
+// должно быть 29
+alert( getLastDayOfMonth(2012, 1) ); 
+
+
+// задание 6
+
+function getSecondsToday() {
+  let end = new Date();
+  let start = new Date('2023-06-30');
+  start.setHours(0);
+  alert( Math.round((end.getTime() - start.getTime()) / 1000 / 3600) );
+}
+
+getSecondsToday();
+
+
+
+// задание 7
+
+function getSecondsToTomorrow() {
+  let start = new Date();
+  let end = new Date(start);
+  end.setDate(start.getDate() + 1);
+  end.setHours(0, 0, 0);
+  
+  alert( (end - start) / 1000 );
+}
+
+getSecondsToTomorrow();
+
+
+*/
+// задание 8 
+
+function formatDate(date) {
+  let now = new Date();
+  if ( (now - date) <= 1000 ) return "прямо сейчас";
+  if ( (now - date) <= 60000 ) return `${(now - date) / 1000} сек. назад`;
+  if ( (now - date) <= 60000 * 60 ) return `${(now - date) / 1000 / 60} мин. назад`;
+  if ( (now - date) > 60001 * 60 ) return `${date}`;
+}
+
+alert( formatDate(new Date(new Date - 999)) );
+alert( formatDate(new Date(new Date - 47 * 1000)) );
+alert( formatDate(new Date(new Date - 14 * 60 * 1000)) );
+alert( formatDate(new Date(new Date - 86400 * 1000)) );
+
+</script>
+</head>
+</html>

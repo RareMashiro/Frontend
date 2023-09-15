@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+// палиндром - решение 1
+
+let str =  prompt('Введите строку:');
+
+function check(str) {
+  let copy;
+  
+  str = str.split(' ').join('').toLowerCase();
+  copy = str.split('').reverse().join('');
+  
+  if(str === copy) return true;
+  else return false;
+}
+
+alert(check(str));
+
+</script>
+</head>
+</html>

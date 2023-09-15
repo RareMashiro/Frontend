@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let arr = [1, 6, 5, 2, 7, 5, 1, 4, 3, 9, 8, 11, 10, 18];
+
+function findCouple(array, number) {
+  let res = [];
+
+  for(let i = 0; i < array.length; i++) {
+    for(let j = 0; j < array.length; j++) {
+      if(array[i] + array[j] == 5) res.push(` (${array[i]} + ${array[j]}) `);
+    }
+  }
+  return res;
+
+}
+
+alert(findCouple(arr, 5));
+
+</script>
+</head>
+</html>

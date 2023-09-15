@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+//let matrix = [[1, 2], [3, 4]];
+
+function sumD(matrix) {
+  let sumMain = [];
+  let sumAdd = [];
+  let result = 0;
+  
+  for(let i = 0; i < matrix.length; i++) {
+	sumMain.push(matrix[i][i]);
+	sumAdd.push(matrix[(matrix.length - 1) - i][i]);
+	
+  };
+  
+  if(sumAdd.length > 2) sumAdd[Math.floor(sumAdd.length / 2)] = 0;
+
+  for(let j = 0; j < sumMain.length; j++) {
+    result = result + sumMain[j] + sumAdd[j];
+	
+  }
+  return result;
+  
+}
+
+alert( sumD(matrix) );
+
+</script>
+</head>
+</html>

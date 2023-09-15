@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .alert {
+    padding: 30px;
+    text-align: center;
+    border: 10px double palevioletred;
+    border-radius: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 28px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<script>
+
+let button = document.createElement('button');
+button.className = "alert";
+button.innerHTML = "<strong>Привет!</strong> Вы прочитали важное сообщение.";
+
+document.body.prepend(button);
+
+button.insertAdjacentHTML('afterend', '<p id="str" style="font-size: 36px; font-style: italic; color: red;">И ЧТО</p>');
+
+let p = document.querySelector('#str');
+//setTimeout(() => p.remove(), 5000);
+
+//setTimeout(() => p.after(button), 2000);
+
+let copy = button.cloneNode(true);
+copy.style = 'background-color: black; color: white; border-color: lightblue;';
+copy.querySelector('strong').innerHTML = 'Пока!';
+
+let count = 0;
+/*
+let id = setInterval(() => {
+  if(count < 10) {
+    if(count % 2 == 0 ) {
+      button.after(copy);
+
+    } else {
+      copy.after(button);
+    }
+    console.log(count);
+    count++;
+
+  } else {
+    clearInterval(id);
+  
+  }
+}, 2000)
+*/
+
+let ul = document.createElement('ul');
+
+document.body.prepend(ul);
+//ul.style = 'padding-bottom: 100px;'
+
+function getListContent() {
+  let fragment = new DocumentFragment();
+
+  for(let i = 1; i < 5; i++) {
+    let li = document.createElement('li');
+    li.append(`Það er númer ${i}`);
+    fragment.append(li);
+
+  }
+  return fragment;
+
+}
+
+ul.append(getListContent());
+
+function getListArray() {
+  let arr = [];
+
+  for(let i = 1; i < 5; i++) {
+    let li = document.createElement('li');
+    li.append(`This is number ${i + 4}`);
+    arr.push(li);
+
+  }
+  return arr;
+
+}
+
+ul.append(...getListArray());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let arr = [
+  "nap", "teachers", "cheaters", 
+  "PAN", "ear", "era", "hectares"
+];
+
+function aclean(mas) {
+
+  let res = mas.map(
+  str => str.toLowerCase()
+  .split('')
+  .sort()
+  .join('')
+  );
+
+  return Array.from(new Set(res));
+
+}
+
+alert( aclean(arr) );
+
+</script>
+</head>
+</html>

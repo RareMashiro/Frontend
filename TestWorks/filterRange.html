@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let arr = prompt('Введите числа через пробел: ');
+
+function filterRange(str, a, b) {
+  
+  a = +prompt('a?');
+  b = +prompt('b?');
+  
+  let mas = [];
+  let res = str.split(' ');
+  
+  res.forEach((element, idx, res) => {  
+    
+    if (res[idx] >= a && res[idx] <= b) {
+      
+      mas.push(res[idx]);
+    
+    }
+  
+  });
+  
+  str = res.join('');
+  return mas;
+}
+
+let newOne = filterRange(arr);
+
+alert( `newOne is: ${newOne}`);
+
+</script>
+</head>
+</html>

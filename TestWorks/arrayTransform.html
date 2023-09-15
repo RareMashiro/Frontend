@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let arr = prompt('Введите строку: ', 'exaple');
+
+function camelize(str) {
+  
+  let res = str.split('-');
+
+  res.map((item, index) => (index == 0) ? item : item[0].toUpperCase() + item.slice(1));
+  
+  alert( res.join('') );
+}
+
+camelize(arr);
+
+</script>
+</head>
+</html>

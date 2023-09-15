@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let str = prompt('введите число: ');
+let arr = str.split('');
+
+
+function encoder(arr) {
+  let mas = [];
+  let prev = arr[0];
+  let count = 1;
+  
+  for(let i = 1; i < arr.length; i++) {
+    if(arr[i] !== prev) {
+	  mas.push(count, prev);
+	  count = 1;
+	  prev = arr[i];
+	  
+	} else {
+	  count++;
+	  
+	}	
+  }
+  mas.push(count, prev);
+  return mas;
+  
+}
+
+function decoder(arr) {
+  let res = [];
+  
+  for(let i = 0; i < arr.length; i++) {
+    if(i % 2 == 0) {
+	  while(arr[i] > 0) {
+	    res.push(arr[i+1]);
+		arr[i]--;
+		
+	  }
+	}
+  }
+  return res;
+  
+}
+
+let encode = encoder(arr);
+alert(encode);
+
+let decode = decoder(encode);
+alert(decode);
+
+let question = confirm('Перевести в число?') 
+if(question) {
+  alert(+decode.join(''));
+}
+
+</script>
+</head>
+</html>

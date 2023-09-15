@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div id="lol" color="red" info="about ypur father">
+  Привет Мир!
+</div>
+<div show-info="name"></div>
+<div show-info="age"></div>
+<script>
+/*
+alert(document.body.firstElementChild.outerHTML);
+
+let res = document.getElementById('lol');
+
+let arr = [];
+
+document.body.firstElementChild.setAttribute('count', 10001);
+
+for(let elem of res.attributes) {
+  arr.push(` ${elem.name} : ${elem.value}`);
+}
+
+alert(arr);
+*/
+
+let person = {
+  name: 'Eric',
+  age: '21'
+};
+
+for(let elem of document.querySelectorAll('[show-info]')) {
+  let field = elem.getAttribute('show-info');
+  elem.innerHTML = person[field];
+}
+
+</script>
+</body>
+</html>

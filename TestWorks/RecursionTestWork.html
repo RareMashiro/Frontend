@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let company = {
+  sales: [{name: 'John', salary: 1000}, {name: 'Ann', salary: 2000}, {name: 'Michail', salary: 2500}],
+  development: {
+    sites: [{name: 'Oleg', salary: 4000}, {name: 'Jann', salary: 3750}],
+	internals: [{name: 'Rock', salary: 3300}, {name: 'Ostin', salary: 3250}]
+  },
+  testing: [{name: 'Jeff', salary: 2356}],
+  design: {
+    stylists: {
+	  males: [{name: 'Joanna', salary: 7777}],
+	  females: [{name: 'Artur', salary: 4999}]
+	},
+    artists: [{name: 'Walter', salary: 2333}]
+  }
+}
+
+function sumSalaries(obj) {
+  let sum = 0;
+  if(Array.isArray(obj)) {
+    return obj.reduce((prev, current) => prev + current.salary, 0)
+  } else {
+	for (let substep of Object.values(obj)) {
+	  sum += sumSalaries(substep);
+	}
+  }
+  return sum;
+}
+
+alert( sumSalaries(company) );
+
+</script>
+</head>
+</html>

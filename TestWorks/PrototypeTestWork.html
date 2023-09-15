@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+/*
+let user = {
+    get name() {
+        return this._name;
+    },
+
+    set name(value) {
+        if(value.length < 4) {
+            return alert("Слишком короткое имя");
+        }
+        this._name = value;
+    }
+};
+
+let mouse = {};
+
+mouse.__proto__ = user;
+
+mouse.name = prompt('Введите имя');
+if(mouse.name) alert(mouse.name);
+*/
+
+let rabbit = {
+    preferences: 'meat',
+    roll() {
+        alert('Rabbit starts to roll');
+    }
+}
+
+let wolf = {
+    food: 'rabbit',
+    __proto__: rabbit
+}
+
+let bear = {
+    height: 125,
+    __proto__: wolf
+}
+
+//alert(bear.preferences);
+alert(JSON.stringify(Object.getOwnPropertyDescriptors(rabbit), null, 2));
+alert(Object.isExtensible(rabbit));
+alert(Object.isFrozen(rabbit));
+alert(Object.isSealed(rabbit));
+
+</script>
+</body>
+</html>

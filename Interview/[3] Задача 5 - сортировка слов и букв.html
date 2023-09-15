@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let words = "oleg will make me cry"
+
+function sort(str) {
+  str = str.split(' ').sort();
+  str = str.map(item => item = item.split('').sort().join(''));
+  str = str.map(item => item = item[0].toUpperCase() + item.slice(1))
+  str = str.join(' ');
+
+  return str;
+}
+
+alert(sort(words));
+
+</script>
+</head>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let vasya = { name: "Вася", surname: "Пупкин", age: 25};
+let petya = { name: "Петя", surname: "Иванов", age: 30};
+let masha = { name: "Маша", surname: "Петрова", age: 35};
+
+let users = [ vasya, petya, masha ];
+/*
+let names = users.map( item => item.name );
+*/
+
+let usersMapped = users
+  .map(( item, index ) => 
+  item = Object.assign( 
+    item, users[index] 
+  ));
+
+alert( usersMapped );
+alert( usersMapped[0].age );
+alert( usersMapped[1].age );
+
+</script>
+</head>
+</html>

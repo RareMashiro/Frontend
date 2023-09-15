@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function getMaxSubSum(arr) {
+  sum = 0;
+  maxSum = 0;
+  for(let x=0; x < arr.length; x++) {
+  
+    sum += arr[x];
+    if (sum > maxSum) {
+    
+      maxSum = sum;
+    
+    } else if (sum < 0) {
+    
+      sum = 0;
+    
+    }
+  
+  }
+  
+  alert( maxSum );
+
+}
+
+getMaxSubSum( [1, -4, 7, 11] );
+
+</script>
+</head>
+</html>

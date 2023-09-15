@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+function sumInput() {
+  let sum = 0;
+  let i = 0;
+  let arr = [];
+
+  while (true) {
+        
+        let arg = prompt('Введите число: ', null);
+
+        if (isFinite(arg) == false || arg === '' || arg === null) {
+          alert(arg);
+          break;
+        }
+       
+        arr.push(+arg);
+        sum += arr[i];
+        i += 1; 
+
+        alert(`Массив: ${arr}, сумма: ${sum}`);
+  }
+}
+
+sumInput();
+
+</script>
+</head>
+</html>

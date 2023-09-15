@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let obj1 = {
+  name: 'lol',
+  surname: 'off'
+}
+
+let obj2 = {
+  name: 'kek',
+  age: 42,
+  describe: 'About me'
+}
+
+function merge(...args) {
+  let mas = {};
+  Object.assign(mas, ...args.reverse());
+  
+  return JSON.stringify(mas, null, 2);
+}
+
+let res = merge(obj1, obj2);
+
+alert(res);
+
+</script>
+</head>
+</html>

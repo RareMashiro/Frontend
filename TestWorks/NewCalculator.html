@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let inp = prompt('Введите строку примера');
+
+function Calculator(str) {
+  this.str = str;
+
+  this.methods = {
+    '+': (a, b) => a + b,
+    '-': (a, b) => a - b
+  }
+
+  this.calculate = function() {
+
+    const arr = this.str.split(' ');
+    const a = +arr[0];
+    const t = arr[1];
+    const b = +arr[2];
+
+    return this.methods[t](a, b);
+  }
+  
+  this.addMethods = function(name, func) {
+    this.methods[name] = func;
+  }
+}
+
+let oke = new Calculator();
+oke.addMethods("*", (a, b) => a * b);
+oke.addMethods("/", (a, b) => a / b);
+let res = new Calculator(inp);
+alert( res.calculate() );
+
+</script>
+</head>
+</html>

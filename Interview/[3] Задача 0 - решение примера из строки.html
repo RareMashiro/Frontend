@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+// задание: написать one(plus(two())) чтобы результатом выполнения было 3
+
+let str = prompt("введите строку (из примера): ", "one(plus(two()))");
+let arr = str.split('(');
+arr.pop();
+
+let numbers = ['zero', 'one', 'two', 'three', 'four', 
+              'five', 'six', 'seven', 'eight', 'nine'];
+
+
+function count(a, sign, b) {
+  if(numbers.includes(a)) a = numbers.indexOf(a);
+  if(numbers.includes(b)) b = numbers.indexOf(b);
+  
+  if(typeof a === 'number' && typeof b === 'number') {
+    switch(sign) {
+      case 'plus':
+	    return a + b;
+	    break;
+	  case 'minus':
+	    return a - b;
+	    break;
+	  case 'multiply':
+	    return a * b;
+	    break;
+	  case 'divide':
+	    return a / b;
+	    break;
+	  case 'remainder':
+	    return a % b;
+	    break;
+	  default:
+	    return "error";
+    }
+  } else return 'error';
+}
+
+alert(count(...arr));
+
+</script>
+</head>
+</html>

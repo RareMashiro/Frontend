@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let vasya = { name: "Вася", age: 35};
+let petya = { name: "Петя", age: 74};
+let masha = { name: "Маша", age: 19};
+
+let users = [ vasya, petya, masha ];
+
+function sortByAge(arr) {
+  arr.sort((a, b) => b.age - a.age);
+}
+
+sortByAge(users);
+
+alert( users[0].name );
+alert( users[1].name );
+alert( users[2].name );
+
+</script>
+</head>
+</html>

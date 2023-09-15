@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+//задание 2
+/*
+function factorial(n) {
+  if (n == 1) return 1;
+  return n * factorial(n - 1);
+}
+
+alert( factorial(10) );
+*/
+//задание 3
+/*
+function fib(n) {
+  if (n <= 1) return n;
+  return fib(n-1) + fib(n-2);
+}
+
+alert(fib(7));
+
+
+let c = 0;
+
+function fib(n) {
+  let a = 1;
+  let b = 1;
+  for (let i = 3; i <= n; i++) {
+    c = a + b;
+	a = b;
+	b = c;
+  }
+  return b;
+}
+
+alert(fib(7));
+
+
+//задание 4
+
+let list = {
+  value: 1,
+  next: {
+    value: "LOL",
+	next: {
+	  value: 3,
+	  next: {
+	    value: 4,
+		next: null
+	  }
+	}
+  }
+};
+
+
+// решение циклом
+
+function cycleList(list) {
+  let tmp = list;
+  while(tmp) {
+    alert(tmp.value);
+	tmp = tmp.next;
+  }
+}
+
+
+// решение рекурсией
+
+function recurList(list) {
+  alert(list.value);
+  if(list.next) recurList(list.next);
+}
+
+cycleList(list);
+recurList(list);
+*/
+
+//задание 5
+
+let list = {
+  value: 1,
+  name: "один",
+  next: {
+    value: 2,
+	name: "LOL",
+	next: {
+	  value: 3,
+	  name: "три",
+	  next: {
+	    value: 4,
+		name: "четыре",
+		next: null
+	  }
+	}
+  }
+};
+
+// решение циклом
+/*
+function cycleList2(list) {
+  let map = list;
+  let arr = []
+  while(map) {
+    arr.push(map.value);
+	map = map.next;
+  }
+  for(let i = arr.length - 1; i >= 0; i--) {
+    alert(arr[i]);
+  }
+}
+*/
+// решение рекурсией
+
+function recurList2(list) {
+  if(list.next) recurList2(list.next);
+  for(key of Object.keys(list)) {
+    if (key == 'next') continue;
+	alert(list[key]);
+  }
+}
+
+recurList2(list);
+
+</script>
+</head>
+</html>

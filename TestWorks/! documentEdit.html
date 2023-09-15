@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+/*
+// Задача 1
+let text = 'Тяжелая техника здесь работает с самого утра';
+let elem = document.createElement('p');
+elem.id = 'el';
+document.body.prepend(elem);
+
+elem.append(document.createTextNode(text));
+elem.innerHTML = text;  // Отличается от остальных
+elem.textContent = text;
+
+
+// Задача 2
+// Для работы нужен ol с 2 li
+
+val = document.querySelectorAll('ol > li');
+
+function clearElement(val) {
+  for(let elem of val) {
+    elem.remove();
+  }
+}
+
+setTimeout(() => {
+  let quest = confirm('Очистить список?')
+  if(quest === true) clearElement(val);
+
+}, 2000);
+
+// Задача 3
+
+// HTML перенес неверно указанный текст выше таблицы в соответсвие со спецификацией 
+
+
+// Задача 4
+
+const ul = document.createElement('ul');
+ul.id = 'ul1';
+document.body.firstElementChild.after(ul);
+
+function createList() {
+  let list = prompt('Новый пункт списка');
+  let li = document.createElement('li');
+  li.textContent = list;
+  document.body.children[1].append(li);
+  if(list === '' || list == undefined) document.body.children[1].lastElementChild.remove();
+  else return createList();
+}
+
+createList();
+
+
+// Задачи 5, 6
+
+let container = document.createElement('div');
+container.id = 'container';
+document.body.prepend(container);
+
+let data = {
+  
+  "Рыбы": {
+    
+    "форель": {},
+    "лосось": {}
+  
+  },
+
+  "Деревья": {
+    
+    "Огромные": {
+      
+      "секвойя": {},
+      "дуб": {}
+    
+    },
+    
+    "Цветковые": {
+      
+      "яблоня": {},
+      "магнолия": {}
+    
+    }
+  }
+};
+
+function createTree(container, obj) {
+  container.innerHTML = createTreeText(obj);
+
+}
+
+function createTreeText(obj) {
+  
+  let li = '';
+  let ul;
+
+  for(let key of Object.keys(obj)) {
+    
+    li += '<li>' + key + createTreeText(obj[key]) + '</li>'
+  
+  }
+  
+  if(li) {
+    
+    ul = '<ul>' + li + '</ul>';
+
+  }
+  
+  return ul || '';
+
+}
+
+createTree(container, data);
+
+function countSiblings(cont) {
+  
+  let res = document.querySelectorAll('li');
+  
+  for(let el of res) {
+    
+    let query = el.querySelectorAll('li').length;
+    
+    if(!query) continue;
+    
+    el.firstChild.data += ` [${query}]`;
+
+  }  
+}
+
+countSiblings(container);
+
+
+// Задача 7
+
+const tableDiv = document.createElement('div');
+tableDiv.id = 'forTable';
+document.body.prepend(tableDiv);
+
+const arr = [tableDiv, 2023, 8];
+const days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+
+function createCalendar(el, year, month) {
+  month = month - 1;
+  const startDate = new Date(year, month);
+  const endDate = new Date(year, month+1, 0);
+  const table = document.createElement('table');
+  const tHead = document.createElement('thead');
+  const tBody = document.createElement('tbody');
+  const style = document.createElement('style');
+
+  document.body.firstChild.append(style);
+  style.innerHTML = 'table { border-collapse: collapse; } th { border: 2px solid black; padding: 3px 5px; } td { border: 1px solid black; padding: 3px 5px;}'
+  document.body.firstChild.append(table);
+  table.append(tHead);
+  table.append(tBody);
+
+  for(let i = 0; i < 7; i++) {
+    const header = document.createElement('th');
+    tHead.append(header);
+  }
+
+  const headers = tHead.querySelectorAll('th');
+
+  for(let i = 0; i < days.length; i++) {
+    headers[i].textContent = days[i];
+  }
+
+  for(let i = 0; i < 6; i++) {
+    const tRow = document.createElement('tr');
+    tBody.append(tRow);
+
+    for(let j = 0; j < 7; j++) {
+      let tData = document.createElement('td');
+      tRow.append(tData);
+    }
+  }
+
+  const dataCells = tBody.querySelectorAll('td');
+
+  for(let i = 0; i < 8; i++) {
+    if(startDate.getDay() === 0) {
+      if(i === startDate.getDay()+7) {
+        for(let j = i-1; j < endDate.getDate()+i-1; j++) {
+          dataCells[j].textContent = j-i+2;
+        }
+      }
+    } else {
+      if(i === startDate.getDay()) {
+        for(let j = i-1; j < endDate.getDate()+i-1; j++) {
+          dataCells[j].textContent = j-i+2;
+        }
+      }
+    }
+  }
+
+  const res = tBody.querySelectorAll('tr');
+  if(res[res.length-1].textContent === '') res[res.length-1].remove();
+
+}
+
+createCalendar(...arr);
+
+
+// Задача 8
+
+createClock();
+
+function createClock() {
+  
+  var res;
+  let clock = document.createElement('div');
+  let startCl = document.createElement('button');
+  let stopCl = document.createElement('button');
+  let style = document.createElement('style');
+
+  startCl.type = 'submit';
+  stopCl.type = 'submit';
+
+  clock.id = 'clock';
+  startCl.id = 'start';
+  stopCl.id = 'stop';
+
+  clock.textContent = 'hh:mm:ss';
+  startCl.textContent = 'start';
+  stopCl.textContent = 'stop';
+  style.innerHTML = '#clock { color: purple; font-size: 24px; font-family: Arial; }';
+
+  document.head.append(style);
+  document.body.firstElementChild.before(clock);
+  document.body.firstElementChild.after(stopCl);
+  document.body.firstElementChild.after(startCl);
+
+  startCl.onclick = setTime;
+  stopCl.onclick = clearTime;
+  
+}
+
+function setTime() {
+  window.res = setInterval(() => { 
+    document.querySelector('#clock').innerHTML = `${new Date(Date.now()).getHours()}:${new Date(Date.now()).getMinutes()}:${new Date(Date.now()).getSeconds()}` 
+  }, 1000);
+};
+
+function clearTime() {
+  clearInterval(window.res, 0);
+}
+
+
+// Задача 9
+
+let ul = document.createElement('ul');
+let li1 = document.createElement('li');
+let li2 = document.createElement('li');
+
+ul.id = 'ul';
+li1.id = 'one';
+li1.textContent = 1;
+li2.id = 'four';
+li2.textContent = 10;
+
+document.body.prepend(ul);
+document.body.firstElementChild.append(li1);
+document.body.firstElementChild.append(li2);
+
+let arr = [2, 3, 4, 5, 6, 7, 8, 9];;
+
+insertTags(arr);
+
+function insertTags(arr) {
+  
+  let mas = arr.sort().reverse();
+
+  for(let i = 0; i < mas.length; i++) {
+    
+    let li = document.createElement('li');
+    li.textContent = mas[i];
+    document.body.firstElementChild.children[1].before(li);
+
+  }
+}
+
+// Или
+
+document.querySelector('#one').insertAdjacentHTML('afterend', '<li>2</li><li>3</li>');
+*/
+
+// Задача 10
+
+
+</script>
+</body>
+</html>

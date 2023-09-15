@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+const tableDiv = document.createElement('div');
+tableDiv.id = 'forTable';
+document.body.prepend(tableDiv);
+
+//const arr = [tableDiv, 2023, 8];
+const year = 2023;
+const month = 8;
+const days = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
+
+createCalendar(tableDiv, year, month);
+
+function createCalendar(el, year, month) {
+  
+  const next = document.createElement('button');
+  const last = document.createElement('button');
+  month = month - 1;
+  const startDate = new Date(year, month);
+  const endDate = new Date(year, month+1, 0);
+  const table = document.createElement('table');
+  const tHead = document.createElement('thead');
+  const tBody = document.createElement('tbody');
+  const style = document.createElement('style');
+
+  document.body.prepend(style);
+  style.innerHTML = 'table { border-collapse: collapse; } th { border: 2px solid black; padding: 3px 5px; } td { border: 1px solid black; padding: 3px 5px;}'
+  document.body.children[1].append(table);
+  
+  next.id = 'next';
+  next.type = 'submit';
+  next.textContent = 'Next';
+  last.id = 'last';
+  last.type = 'submit';
+  last.textContent = 'Last';
+  document.body.children[1].children[0].after(next);
+  document.body.children[1].children[1].after(last);
+
+  table.append(tHead);
+  table.append(tBody);
+  
+  for(let i = 0; i < 7; i++) {
+    
+    const header = document.createElement('th');
+    
+    tHead.append(header);
+  }
+
+  const headers = tHead.querySelectorAll('th');
+
+  for(let i = 0; i < days.length; i++) {
+    
+    headers[i].textContent = days[i];
+  
+  }
+
+  for(let i = 0; i < 6; i++) {
+    
+    const tRow = document.createElement('tr');
+    tBody.append(tRow);
+
+    for(let j = 0; j < 7; j++) {
+      
+      let tData = document.createElement('td');
+      tRow.append(tData);
+    
+    }
+  }
+
+  const dataCells = tBody.querySelectorAll('td');
+
+  for(let i = 0; i < 8; i++) {
+    
+    if(startDate.getDay() === 0) {
+      
+      if(i === startDate.getDay()+7) {
+        
+        for(let j = i-1; j < endDate.getDate()+i-1; j++) {
+          
+          dataCells[j].textContent = j-i+2;
+        
+        }
+      }
+    
+    } else {
+      
+      if(i === startDate.getDay()) {
+        
+        for(let j = i-1; j < endDate.getDate()+i-1; j++) {
+          
+          dataCells[j].textContent = j-i+2;
+        
+        }
+      }
+    }
+  }
+
+  const res = tBody.querySelectorAll('tr');
+  if(res[res.length-1].textContent === '') res[res.length-1].remove();
+
+  document.querySelector('#next').onclick = nextMonth;
+  document.querySelector('#last').onclick = lastMonth;
+
+}
+
+function nextMonth() {
+  //createCalendar(tableDiv, year, month + 1);
+  alert('next');
+}
+
+function lastMonth() {
+  //createCalendar(tableDiv, year, month + 1);
+  alert('last');
+}
+
+</script>
+</body>
+</html>

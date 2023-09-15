@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let words = ['Привет', 'мир', 'тевирп', 'я', 'еду', 'в', 'Рим', 'РиВетп'];
+
+function anagram(arr) {
+  let mas = [];
+  let enc = [];
+  let count = 1;
+  
+  for(let i = 0; i < arr.length; i++) {
+    mas.push(arr[i].toLowerCase().split('').sort().join(''));
+	
+  }
+  
+  mas = mas.sort();
+  let prev = mas[0];
+  
+  for(let n = 1; n < mas.length; n++ ) {
+    if(mas[n] !== prev) {
+	  if(count >= 2) enc.push(` (${count}: ${prev})`);
+	  count = 1;
+	  prev = mas[n];
+	  
+	} else {
+	  count++;
+	  
+	}
+	
+  }
+  return enc;
+
+}
+
+alert(anagram(words));
+
+</script>
+</head>
+</html>

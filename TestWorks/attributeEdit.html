@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  div[data-widget-name="menu"] {
+    color: lightcoral;
+  }
+  div[data-widget-name="title"] {
+    color: blueviolet;
+    font-size: 36px;
+  }
+  div[data-widget-name="voyage"] {
+    color:cadetblue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 48px;
+    box-shadow: brown 5px 5px;
+  }
+</style>
+</head>
+<body>
+<div data-widget-name="menu" style="margin-bottom: 15px;">
+Choose the genre
+</div>
+<div show-info="name"></div>
+<div show-info="age"></div>
+<a name="list" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+font-size: 24px; border: 3px dotted black;">The list</a>
+<ul>
+  <li><a href="http://google.com">http://google.com</a></li>
+  <li><a href="/tutorial">/tutorial.html</a></li>
+  <li><a href="local/path">local/path</a></li>
+  <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+  <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+  <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+</ul>
+<script>
+/*
+let quest = confirm('Изменить цвет?');
+if(quest === true) document.body.firstElementChild.dataset.widgetName="title";
+
+let id = setTimeout(() => {
+  let ask = confirm('Еще раз?');
+  if(ask === true) {
+    let desc = prompt('Какой заголовок?')
+    document.body.firstElementChild.dataset.widgetName=desc;
+
+  }
+}, 5000)
+*/
+
+let lists = document.querySelectorAll('a');
+
+for(let el of lists) {
+  // для атрибута
+  let cont = el.getAttribute('href');
+  if(!cont) continue;
+  if(cont.includes('://') && !cont.startsWith('http://internal.com')) {
+    el.style.color='orange';
+
+  }
+  
+  // для текста
+  if(el.textContent.includes('://') && !el.textContent.startsWith('http://internal.com')) { 
+    el.style.color = 'orange';
+
+  }
+  
+}
+
+</script>
+</body>
+</html>
