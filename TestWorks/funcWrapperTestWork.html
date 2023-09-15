@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div>
+  Привет Мир!
+</div>
+<script>
+/*
+function count(x) {
+  let res = x * 100;
+  return res;
+}
+
+function wrap(func) {
+  let mas = new Map();
+
+  return function cache(x) {
+    if(mas.has(x)) return mas.get(x);
+    else {
+      let result = func(x);
+      mas.set(x, result);
+
+    }
+    let arr = Array.from(mas);
+    return arr;
+
+  }
+}
+
+number = wrap(count);
+
+alert(number(1));
+
+let obj1 = {
+  name: 'Oleg',
+  age: 43,
+  gender: 'male'
+}
+
+let obj2 = {
+  name: 'Darla',
+  age: 19,
+  gender: 'female'
+}
+
+function prosp() {
+  if(this.gender === 'male') alert(`This is ${this.name}, and he is ${this.age} years old`);
+  else alert(`This is ${this.name}, and she is ${this.age} years old`);
+}
+
+prosp.call(obj1);
+prosp.call(obj2);
+*/
+
+let worker = {
+  slow(min, max) {
+    return min + max;
+  }
+};
+
+function cachingDecorator(func, hash) {
+  let cache = new Map();
+  return function() {
+    let key = hash(arguments);
+    if(cache.has(key)) {
+      return cache.get(key);
+
+    }
+    
+    let result = func.call(this, ...arguments);
+
+    cache.set(key, result);
+    
+    return result;
+  };
+}
+
+function hash(args) {
+  return args[0] + ',' + args[1];
+
+}
+
+worker.slow = cachingDecorator(worker.slow, hash);
+
+alert( worker.slow(3, 5) );
+alert( "Again: " + worker.slow(3, 5) );
+alert( worker.slow(5, 6) );
+
+
+</script>
+</body>
+</html>

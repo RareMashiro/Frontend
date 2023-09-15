@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+
+function ucFirst(str) {
+  str = str[0].toUpperCase() + str.slice(1);
+  alert(str);
+}
+
+let rp = prompt("Введи строку");
+ucFirst(rp);
+
+</script>
+</head>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let arr = [1, 4, 6, 4, 3, 2, 14, 27, 27, 8 ,9, 21, 13, 13, 4, 7, 1, 6, 9, 15];
+// Решение 1
+function sumUnique1(arr) {
+  let mas = [];
+  let sum = 0;
+
+  for(let i = 0; i < arr.length; i++) {
+    if(mas.includes(arr[i])) continue;
+    mas.push(arr[i]);
+
+  }
+  
+  for(let j = 0; j < mas.length; j++) {
+    sum += mas[j];
+
+  }
+  alert(sum);
+
+}
+
+sumUnique1(arr);
+// Решение 2
+function sumUnique2(arr) {
+  let mas = new Set(arr);
+  let sum = 0;
+
+  for(let value of mas) {
+    sum += value;
+  }
+  alert(sum);
+
+}
+
+sumUnique2(arr);
+
+</script>
+</head>
+</html>

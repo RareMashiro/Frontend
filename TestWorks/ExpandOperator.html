@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+// остаточные параметры - всегда в конце списка аргументов
+function progr(a, ...lol) {
+  let res = a;
+  alert(lol);
+  for(let arg of lol) {
+    res *= arg; 
+  }
+  alert(res);
+}
+
+progr(1, 4, 8, 12);
+
+//оператор расширения - в любом месте списка параметров
+let arr1 = [2, 3, 4, 5];
+let arr2 = [8, 9, 10];
+let arr3 = [1, ...arr1, 6, 7, ...arr2];
+alert(arr3);
+
+//все аргументы функции находятся в псевдомассиве arguments
+function count(a, b, c) {
+  alert(arguments.length);
+}
+
+count(10, 15, 20);
+
+</script>
+</head>
+</html>

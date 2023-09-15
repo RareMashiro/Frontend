@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+/*
+function hi(arg) {
+  alert(`hello, ${arg}`);
+}
+
+let delay = +prompt('задержка?');
+
+function reduce() {
+  while(delay < 16001) {
+    let arg = setTimeout(hi, delay, 'John');
+    delay *= 2;
+	
+  }
+}
+
+reduce();
+
+let timerId = setTimeout(function roll() {
+  alert('ты поел?');
+  timerId = setTimeout(roll, 2000);
+}, 2000);
+
+
+setTimeout(() => alert('это я'));
+
+alert('привет');
+*/
+
+function printNumbers1(from, to) {
+  let id = setInterval(() => {
+    if(from == to) clearInterval(id);
+	alert(from++);
+  }, 1000);
+}
+
+//printNumbers1(1, 10);
+
+function printNumbers2(from, to) {
+  let cur = from;
+  
+  setTimeout(function go() {
+    alert(cur);
+	if(cur < to) {
+	  setTimeout(go, 1000)
+	}
+	cur++;
+  }, 1000)
+}
+
+printNumbers2(1, 10);
+
+/*
+function timer() {
+  let count = 0;
+  let delay = 1000;
+
+  let time = setInterval(() => {
+    //let count = 0;
+    if(count % 2 == 0) {
+      console.log('HELLO');
+      delay = delay - 200;
+      count++;
+    
+    } else if(count % 2 !== 0) {
+      console.log('BYE BYE');
+      //delay = delay + 50;
+      count++;
+
+    }
+
+    if(count === 10) {
+      clearInterval(time);
+      const move = confirm('Вывести количество сообщений?');
+      if(move === true) alert(count);
+    
+    }
+  }, delay);
+
+}
+
+timer();
+
+const timer = function(delay) {
+  const time = setTimeout(() => {
+    console.log('Hello World', delay);
+    timer(delay + 1);
+    
+  }, delay * 100);
+}
+
+timer(1);
+*/
+
+let id;
+let counter = 5;
+
+const timer = function(delay) {
+  if(counter === 5) {
+    clearInterval(id);
+    id = setInterval(() => {
+      console.log('Hello world', delay);
+      timer(delay + 100);
+    }, delay);
+    counter = 0;
+  }
+  counter += 1;
+}
+
+timer(100);
+
+// Для работы необходим элемент div в body документа
+
+let num = 0;
+
+function timer(delay, to) {
+  let time = setTimeout( function count() {
+    num++;
+    console.log(num);
+    
+    if(num % 2 == 0) document.body.firstElementChild.style.color = 'red';
+    else document.body.firstElementChild.style.color = 'green';
+    
+    if(num == to) {
+      clearTimeout(time);
+      document.body.firstElementChild.style.color = 'black';
+      alert('А ЧТО ТЫ ДУМАЛ? СТАТЬЯ 273.П.3 УК РФ')
+
+    } else {
+      timer(delay - 200, to);
+
+    }
+
+  }, delay)
+
+}
+
+timer(2200, 10);
+
+</script>
+</head>
+</html>

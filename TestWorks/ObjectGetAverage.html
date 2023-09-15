@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let vasya = {name: 'Вася', age: 25};
+let petya = {name: 'Петя', age: 30};
+let masha = {name: 'Маша', age: 104};
+
+function getAverageAge(mas) {
+  let count = 0;
+
+  for(let sum = mas.length - 1; sum > -1; sum--) {
+    count = count + mas[sum].age; 
+    //alert( count ); 
+  }
+
+  return Math.round(count / mas.length);
+}
+
+let arr = [ vasya, petya, masha ]
+
+alert( getAverageAge(arr) );
+
+</script>
+</head>
+</html>

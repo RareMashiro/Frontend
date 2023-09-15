@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+/*
+let hero = {
+  name: "Arleccino",
+  age: "no data",
+  skills: ["evil spread", "live absorb", "end of times"],
+  bio: "no data",
+  bornplace: "undefined",
+  siblings: undefined
+}
+
+let person = JSON.stringify(hero, null, 2);
+
+alert( person );
+
+function transform(obj) {
+  let result = JSON.parse(obj, function reviver(key, value) {
+    if (key == 'bio') return value = "fatui";
+    else return value;
+  });
+  alert( result.name );
+  alert( result.bio );
+}
+
+let question = confirm("Превратить JSON в объект?");
+if (question == true) transform(person);
+*/
+
+function change() {
+  room.occupiedBy = undefined;
+  meetup.self = undefined;
+}
+
+let room = {
+  number: 12
+};
+
+let meetup = {
+  title: "Совещание",
+  occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
+  place: room
+};
+
+room.occupiedBy = meetup;
+meetup.self = meetup;
+
+alert( JSON.stringify(meetup, function replacer(key, value) {
+  if (key == 'place') {
+    change();
+    return value;	
+  } else {
+    return value;
+  }
+}) );
+
+</script>
+</head>
+</html>

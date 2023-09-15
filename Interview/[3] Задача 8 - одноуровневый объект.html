@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let person = {
+  name: 'Oleg',
+  age: 24,
+  skills: {
+    first: 'Punch',
+	  second: 'Roll',
+	  ultimate: 'To dead',
+	  describe: {
+	    info: 'LOOL',
+	    prices: 1234
+	  }
+  }
+}
+
+window.creature = {};
+
+function plainify(obj) {
+  
+  for(let [key, value] of Object.entries(obj)) {
+	  
+    if(typeof value === 'object') plainify(value);
+	  else creature[key] = value;
+	
+  }
+  
+  return JSON.stringify(creature, null, 2);
+}
+
+alert(plainify(person));
+
+</script>
+</head>
+</html>

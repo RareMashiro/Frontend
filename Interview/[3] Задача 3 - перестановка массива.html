@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+function inverse(arr, num) {
+  let mas;
+  let vax;
+  let res;
+  
+  if(num >= 0)  {
+    mas = arr.slice(0, num).reverse();
+    vax = arr.slice(num, arr.length);
+    res = mas.concat(vax);
+
+  } else if(num < 0) {
+    mas = arr.slice(num, arr.length).reverse();
+    vax = arr.slice(0, num);
+    res = vax.concat(mas);
+
+  } else {
+    res = arr.reverse();
+  
+  }
+  return res;
+}
+
+alert(inverse(arr));
+
+</script>
+</head>
+</html>

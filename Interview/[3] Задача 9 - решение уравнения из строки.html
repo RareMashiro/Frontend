@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+let examp = 'x+8*(4*6)-2+4';
+let operators = ['+', '-', '*', '(', ')'];
+
+function solve(str, parametr) {
+  let mas = str.split('');
+  let arr1 = [];
+  let arr2 = [];
+  let par = 0;
+  // создаем 2 подмассива - с числами и отсеянными элементами
+  for(let i = 0; i < mas.length; i++) {
+    if(10 * mas[i]) arr1.push(mas[i]);
+    else arr2.push(mas[i]);
+
+  }
+  // находим переменную во 2 массиве
+  for(let j = 0; j < arr2.length; j++) {
+    if(operators.includes(arr2[j])) continue;
+    else par = arr2[j];
+  
+  }
+  // подставляем 2 аргумент в переменную
+  for(let k = 0; k < mas.length; k++) {
+    if(mas[k] === par) mas[k] = parametr;
+  
+  }
+  // решаем пример
+  let result = mas.join('');
+  return eval(result);
+}
+
+alert(solve(examp, 5));
+
+</script>
+</head>
+</html>

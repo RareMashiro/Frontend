@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+
+
+function checkSpam(str) {
+  
+  if (str.includes("viagra")) {
+    alert('Виагра найдена');
+  
+  } else if (str.includes("XXX")) {
+    alert('XXX найдено');
+  
+  } else { 
+    alert('Пусто');
+  
+  }
+}
+
+let store = prompt("Введи строку");
+checkSpam(store);
+
+</script>
+</head>
+</html>
