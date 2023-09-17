@@ -158,3 +158,22 @@ section {
   color: #fff
 }
 
+section {
+  height: 460px;
+  overflow: auto;
+}
+
+.description {
+  width: 260px;
+  height: 180px;
+  font: 18px 'Oswald', sans-serif;
+  overflow: auto;
+  text-align: justify;
+
+}
+
+.tier-list {
+  padding: 20px;
+
+}
+
