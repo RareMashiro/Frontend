@@ -5,29 +5,25 @@
 
 'use strict'
 
-class FormatError extends SyntaxError {
-  constructor(message) {
-    super(message);
-    this.name = this.constructor.name;
-  }
+// Задача 1
+/*
+let prom = new Promise(function(resolve, reject) {
+  resolve('Привет');
+
+  setTimeout(() => resolve('Снова привет'), 1000);
+})
+
+// Ожидаемый результат: игнорирование +
+
+prom.then(alert);
+*/
+// Задача 2
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-let err = new FormatError('Ошибка форматирования');
-
-alert(err.message);
-alert(err.name);
-alert(err.stack);
-
-alert(err instanceof FormatError);
-alert(err instanceof SyntaxError);
-
-
-function longest(root) {
-    dfs(root, true, 0);
-    
-  }
-
-  longest(root);
+delay(3000).then(() => alert('выполнилось через 3 секунды'));
 
 </script>
 </body>

@@ -1,0 +1,27 @@
+section {
+  margin-left: 330px;
+  padding-bottom: 50px;
+  height: 500px;
+  overflow: auto;
+}
+
+cite {
+  margin-left: 20px;
+  font: 30px 'Oswald', sans-serif;
+}
+
+.description {
+  width: 500px;
+  height: 100px;
+  overflow: auto;
+  font: 18px 'Oswald', sans-serif;
+  text-align: justify;
+
+}
+
+.tier-list {
+  padding: 20px;
+  width: 500px;
+  height: 260px;
+}
+
