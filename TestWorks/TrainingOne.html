@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html>
-<style>
-    .promise-avatar-example {
-        width: 400px;
-        height: 400px;
-        position: relative;
-        margin-left: 300px;
-        border: 4px solid #8fccaa;
-
-    }
-</style>
 <body>
 <script>
 
 'use strict'
 
-function loadGithubUser(name) {
-    return fetch(`https://api.github.com/users/${name}`)
-        .then(response => response.json());
+const s = 'ADOBECODEBANC';
+const t = 'ABC';
+
+let res = [];
+
+for(let i = 0; i < t.length; i++) {
+    res.push(s.indexOf(`${t[i]}`));
+    
+
 }
 
-function showAvatar(gitUs) {
-    return new Promise((resolve, reject) => {
-        let img = document.createElement('img');
-        img.src = gitUs.avatar_url;
-        img.className = 'promise-avatar-example';
-        document.body.append(img);
+alert(res);
 
-        setTimeout(() => {
-            img.remove();
-            resolve(gitUs);
-        }, 5000);
-    });
-}
+// var minWindow = function(s, t) {
+//     let prev = s;
+//     let res = "";
+//     let window = t.split('');
+//     let a = 0;
+//     let b = s.length;
+//     let count = 0;
 
-loadGithubUser('RareMashiro')
-    .then(showAvatar)
-    .then(gitUs => alert(`Показ аватара ${gitUs.login} завершен`));
+//     if(t.length > s.length) return alert(res);
+
+//     while(a < s.length) {
+//         let str = s.slice(a, b); 
+        
+//         for(let i = 0; i < window.length; i++) {
+//             if(str.includes(window[i])) {
+//                 str[str.indexOf(`${window[i]}`)] = '-';
+//                 count++;
+//             }
+//         }
+
+//         if(a < b) {
+//             if(count === window.length) {
+//                 prev = s.slice(a, b);
+//                 if(prev.length >= t.length) res = prev;
+//                 b--;
+//             } else {
+//                 b = a;
+//             }
+//             count = 0;
+//         } else {
+//             a++;
+//             b = s.length;
+//         }
+//     }
+
+//     return alert(res);
+// };
+
+// minWindow(s, t);
 
 </script>
 </body>
