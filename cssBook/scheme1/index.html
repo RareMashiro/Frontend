@@ -44,5 +44,12 @@
 		&copy; 2023 Профессиональная техника для обжарщиков &mdash;
 		<a href="/terms-of-use">Условия эксплуатации</a>
 	</footer>
+	<script type='text/javascript'>
+		let rootEl = document.documentElement;
+		let styles = getComputedStyle(rootEl);
+		let mainColor = styles.getPropertyValue('--brand-color');
+		console.log(String(mainColor).trim());
+		rootEl.style.setProperty('--brand-color', '#cdf');
+	</script>
 </body>
 <html>
