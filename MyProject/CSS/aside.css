@@ -1,0 +1,45 @@
+aside {
+  float: left;
+  width: 250px;
+}
+
+.aside-menu li {
+  font-weight: 300;
+  list-style-type: square;
+  border-top: 1px solid #e7e7e7;
+}
+
+.aside-menu li:first-child {
+  border: none;
+}
+
+.aside-menu li.active {
+  color: #7e7e7e;
+}
+
+.aside-menu a {
+  color: #8f8f8f;
+}
+
+.aside-menu li:hover, .aside-menu a:hover {
+  background-color: #7e7e7e;
+  color: #fff
+}
+
+#marketplace > h2 {
+  background-color: #7e7e7e;
+  color: #fff;
+  font: 20px 'Oswald', sans-serif;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  width: 320px;
+}
+
+#marketplace > div{
+  width: 320px;
+  height: 240px;
+  border: 5px solid #7e7e7e;
+  background-color: #e7e7e7;
+
+}
+

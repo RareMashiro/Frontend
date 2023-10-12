@@ -1,0 +1,45 @@
+:root {
+	font-size: calc(0.5rem + 1vw);
+	font-family: Helvetica, Arial, sans-serif;
+	box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color: #eee;
+}
+
+header {
+	background-color: #0072b0;
+	color: #fff;
+	border-radius: 0.5em;
+}
+
+main {
+	display: block;
+}
+
+.main {
+	float: left;
+	width: 70%;
+	background-color: #fff;
+	border-radius: 0.5em;
+}
+
+main > p {
+	text-align: justify;
+}
+
+.sidebar {
+	float: left;
+	width: calc(30% - 1.5em);
+	margin-left: 1.5em;
+	padding: 1.5em;
+	background-color: #fff;
+	border-radius: 0.5em;
+}

@@ -1,0 +1,21 @@
+footer {
+  background-color: #7e7e7e;
+  font-size: 11px;
+}
+
+#footer {
+  max-width: 960px;
+  margin: auto;
+  padding: 10px 0;
+  height: 90px;
+}
+
+#footer-logo {
+  margin-top: 13px;
+  background-color: #fff;
+  float: right;
+  font: 30px 'Oswald', sans-serif;
+  padding: 10px;
+  text-align: center;
+  color: #7e7e7e;
+}

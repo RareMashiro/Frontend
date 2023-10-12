@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="/gitTestWork/Frontend/cssBook/script.js"></script>
+</head>
+<body>
+	<header class="page-header">
+		<h1 id="page-title" class="title">Профессиональная техника для обжарщиков</h1>
+		<nav>
+			<ul id="main-nav" class="nav">
+				<li><a href="/">Главная</a></li>
+				<li><a href="/coffees">Ростеры</a></li>
+				<li><a href="/brewers">Кофеварки</a></li>
+				<li type="button" onclick="rofl()"><a href="/specials" class="featured">Акции!</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<p>Обязательно проверьте раздел с <a href="/specials" class="featured">нашими акциями!</a></p>
+		<div class="panel large">
+			<h2>Монсорта</h2>
+			<div class="body">
+				Мы сотрудничаем с небольшими плантациями по всему миру, чтобы 
+				собирать зерна в пик сезона. Затем мы тщательно поджариваем зерна 
+				<a href="/batch-size.html">Небольшими партиями</a>, чтобы максимально 
+				раскрыть их потенциал.
+			</div>
+		</div>
+		<aside class="dark">
+			<div class="panel">
+				<h2>Монсорта</h2>
+				<div class="body">
+					Мы сотрудничаем с небольшими плантациями
+					по всему миру, чтобы собирать зерна в пик сезонаю
+					Затем мы тщательно поджариваем зерна небольшими
+					партиями, чтобы максимально раскрыть их потенциалю
+				</div>
+			</div>
+		</aside>
+	</main>
+	<footer class="footer">
+		&copy; 2023 Профессиональная техника для обжарщиков &mdash;
+		<a href="/terms-of-use">Условия эксплуатации</a>
+	</footer>
+	<script type='text/javascript'>
+		let rootEl = document.documentElement;
+		let styles = getComputedStyle(rootEl);
+		let mainColor = styles.getPropertyValue('--brand-color');
+		console.log(String(mainColor).trim());
+		rootEl.style.setProperty('--brand-color', '#cdf');
+	</script>
+</body>
+<html>
