@@ -5,58 +5,34 @@
 
 'use strict'
 
-const s = 'ADOBECODEBANC';
-const t = 'ABC';
+function getAv(name) {
+    fetch(`https://api.github.com/users/${name}`)
+        .then(response => response.json())
+        .then(githubUser => new Promise((resolve, reject) => {
+            let img = document.createElement('img');
+            img.src = githubUser.avatar_url;
+            img.className = 'promise-avatar';
+            document.body.append(img);
 
-let res = [];
+            let div = document.createElement('div');
+            div.innerHTML = `
+                <p style="color: red">Пользователь: ${githubUser.name}</p>
+                <p style="color: green">Дата регистрации: ${githubUser.created_at}</p>
+                <p style="color: blue">Дата последней активности: ${githubUser.updated_at}</p>
+            `;
+            document.body.append(div);
 
-for(let i = 0; i < t.length; i++) {
-    res.push(s.indexOf(`${t[i]}`));
-    
-
+            setTimeout(() => {
+                img.remove();
+                div.remove();
+                resolve(githubUser);
+            }, 5000);
+        }))
+        .catch(err => alert(err.message));
 }
 
-alert(res);
-
-// var minWindow = function(s, t) {
-//     let prev = s;
-//     let res = "";
-//     let window = t.split('');
-//     let a = 0;
-//     let b = s.length;
-//     let count = 0;
-
-//     if(t.length > s.length) return alert(res);
-
-//     while(a < s.length) {
-//         let str = s.slice(a, b); 
-        
-//         for(let i = 0; i < window.length; i++) {
-//             if(str.includes(window[i])) {
-//                 str[str.indexOf(`${window[i]}`)] = '-';
-//                 count++;
-//             }
-//         }
-
-//         if(a < b) {
-//             if(count === window.length) {
-//                 prev = s.slice(a, b);
-//                 if(prev.length >= t.length) res = prev;
-//                 b--;
-//             } else {
-//                 b = a;
-//             }
-//             count = 0;
-//         } else {
-//             a++;
-//             b = s.length;
-//         }
-//     }
-
-//     return alert(res);
-// };
-
-// minWindow(s, t);
+let name = prompt('Введите имя пользователя');
+getAv(name);
 
 </script>
 </body>
