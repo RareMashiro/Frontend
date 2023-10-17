@@ -15,10 +15,9 @@ body {
 	background-color: #eee;
 }
 
-body * + * {
+* + * {
 	margin-top: 1.5em;
 }
-
 
 header {
 	padding: 1em 1.5em;
@@ -31,56 +30,54 @@ main {
 	display: block;
 }
 
-main > p {
+p {
 	text-align: justify;
 }
 
-.wrapper {
-	margin: 0 -1.5em;
-}
-
 .container {
-	display: flex;
-	width: 100%;
+	margin: 0 auto;
+	max-width: 1080px;
 }
 
 .main {
-	
 	padding: 0 1.5em;
 	background-color: var(--ct-color);
 	border-radius: 0.5em;
 }
 
-.sidebar {
-	width: 30%;
+.media {
+	float: left;
+	margin: 0 1.5em 1.5em 0;
+	width: calc(50% - 1.5em);
 	padding: 1.5em;
-	margin-left: 1.5em;
-	margin-top: 0;
-	background-color: var(--ct-color);
+	background-color: #eee;
 	border-radius: 0.5em;
 }
 
-.button-link {
-	display: block;
-	padding: 0.5em;
-	color: var(--ct-color);
-	background-color: #0090c9;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
+.media:nth-child(odd) {
+	clear: left;
 }
 
-.button-link:active {
-	background-color: #00a9d9;
+.clearfix::before,
+.clearfix::after {
+	display: table;
+	content: " ";
 }
 
-.sponsor-link {
-	display: block;
-	color: #0072b0;
-	font-weight: bold;
-	text-decoration: none;
+.clearfix::after {
+	clear: both;
 }
 
-.sponsor-link:active {
-	color: #00a9d9;
+.media-image {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.media-body {
+	overflow: auto;
+	margin-top: 0;
+}
+
+.media-body h4 {
+	margin-top: 0;
 }

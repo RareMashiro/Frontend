@@ -5,34 +5,7 @@
 
 'use strict'
 
-function getAv(name) {
-    fetch(`https://api.github.com/users/${name}`)
-        .then(response => response.json())
-        .then(githubUser => new Promise((resolve, reject) => {
-            let img = document.createElement('img');
-            img.src = githubUser.avatar_url;
-            img.className = 'promise-avatar';
-            document.body.append(img);
 
-            let div = document.createElement('div');
-            div.innerHTML = `
-                <p style="color: red">Пользователь: ${githubUser.name}</p>
-                <p style="color: green">Дата регистрации: ${githubUser.created_at}</p>
-                <p style="color: blue">Дата последней активности: ${githubUser.updated_at}</p>
-            `;
-            document.body.append(div);
-
-            setTimeout(() => {
-                img.remove();
-                div.remove();
-                resolve(githubUser);
-            }, 5000);
-        }))
-        .catch(err => alert(err.message));
-}
-
-let name = prompt('Введите имя пользователя');
-getAv(name);
 
 </script>
 </body>
