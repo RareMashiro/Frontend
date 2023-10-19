@@ -5,7 +5,22 @@
 
 'use strict'
 
+const nums1 = [1, 3];
+const nums2 = [2, 4];
 
+var median = function(nums1, nums2) {
+    let res = nums1;
+    res.push(...nums2);
+    alert(res);
+    
+    let min = Math.min.apply(null, res);
+    alert(min);
+    let max = Math.max.apply(null, res);
+    alert(max);
+    alert((min + max) / 2);
+}
+
+median(nums1, nums2);
 
 </script>
 </body>
