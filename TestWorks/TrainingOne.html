@@ -40,29 +40,37 @@
 
 
 
-function calc(a, b, callback) {
-    let sum = a + b;
-    if(a < 2) callback(new Error('Первый аргумент должен быть больше 2'), null);
-    else callback(null, sum);
+// function calc(a, b, callback) {
+//     let sum = a + b;
+//     if(a < 2) callback(new Error('Первый аргумент должен быть больше 2'), null);
+//     else callback(null, sum);
+// }
+
+// function square(err, sum) {
+//     if(err) alert(err);
+//     else alert(`Квадрат полученной суммы: ${sum ** 2}`);
+// }
+
+// function promisification(a, b) {
+//     return new Promise((resolve, reject) => {
+//         calc(a, b, (err, sum) => {
+//             if(err) reject(err);
+//             else resolve(sum);
+//         })
+//     })
+// }
+
+// let func = promisification(1, 10);
+
+// func.then(result => square(null, result)).catch(square);
+
+let arr = [10, 2, 'd', 4, 'ere', true];
+
+async function test(mas) {
+    return Promise.resolve(mas);
 }
 
-function square(err, sum) {
-    if(err) alert(err);
-    else alert(`Квадрат полученной суммы: ${sum ** 2}`);
-}
-
-//calc(5, 9, square);
-
-function promisification(a, b) {
-    return new Promise((resolve, reject) => {
-        calc(a, b, (err, sum) => {
-            if(err) reject(err);
-            else resolve(sum);
-        })
-    })
-}
-
-promisification(2, 10).then(result => square(null, result)).catch(square);
+test(arr).then(result => setTimeout(() => alert(JSON.stringify(result)), 4000));
 
 </script>
 </body>
