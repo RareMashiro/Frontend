@@ -1,0 +1,79 @@
+<!doctype html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Профессиональная техника для обжарщиков</title>
+	<link rel="stylesheet" href="style8.css" type="text/css" />
+</head>
+<body>
+	<header id="header" class="page-header">
+		<div class="title">
+			<h1>Профессиональная техника для обжарщиков</h1>
+			<div class="slogan">Мы любим кофе</div>
+		</div>
+	</header>
+	
+	<nav class="menu" id="main-menu">
+		<button class="menu-toggle" id="toggle-menu">
+			свернуть меню
+		</button>
+		<div class="menu-dropdown">
+			<ul class="nav-menu">
+				<li><a href="/about.html">О нас</a></li>
+				<li><a href="/shop.html">Магазин</a></li>
+				<li><a href="/menu.html">Меню</a></li>
+				<li><a href="/brew.html">Приготовление кофе</a></li>
+			</ul>
+		</div>
+	</nav>
+	
+	<aside if="hero" class="hero">
+		Добро пожаловать на сайт нашей компании! Всеми силами 
+		мы стараемся поддерживать репутацию лучшей компании 
+		для обжарщиков.
+	</aside>
+	
+	<main id="main">
+		<div class="row">
+			<section class="column">
+				<h2 class="subtitle">Монсорта</h2>
+				<p>
+					Мы сотрудничаем с небольшими плантациями 
+					по всему миру, чтобы собирать зерна в пик сезона. 
+					Затем мы тщательно поджариваем зерна 
+					<a href="/batch-size.html">небольшими партиями</a>, 
+					чтобы максимально раскрыть их потенциал.
+				</p>
+			</section>
+			<section class="column">
+				<h2 class="subtitle">Смеси</h2>
+				<p>
+					Наши дегустаторы подобрали тщательно сбалансированные 
+					смеси на любой вкус. Легендарная смесь 
+					<a href="/house-blend.html">Вкус компании</a> 
+					в продаже всегда.
+				</p>
+			</section>
+			<section class="column">
+				<h2 class="subtitle">Приготовление кофе</h2>
+				<p>
+					Мы продаем также лучшие кофеварки, френч-прессы 
+					и перколяторы. Приходите на наши 
+					<a href="/classes.html">мастер-классы</a>, 
+					чтобы научиться варить лучший кофе 
+					в вашей жизни.
+				</p>
+			</section>
+		</div>
+	</main>
+	<script type="text/javascript">
+		(function() {
+			const button = document.getElementById('toggle-menu');
+			button.addEventListener('click', function(event) {
+				event.preventDefault();
+				const menu = document.getElementById('main-menu');
+				menu.classList.toggle('is-open');
+			});
+		})();
+	</script>
+</body>
