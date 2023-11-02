@@ -1,0 +1,24 @@
+
+.fade {
+	height: 200px;
+	width: 400px;
+	margin-bottom: 1em;
+}
+
+.fade--first {
+	background-image: linear-gradient(to right, black 40%, yellow 40%, yellow 60%, purple 60%, purple 80%, blue 80%);
+}
+
+.fade--second {
+	height: 1em;
+	background-image: repeating-linear-gradient(-45deg, #57b, #57b 10px, #148 10px, #148 20px);
+	border-radius: 0.3em;
+}
+
+.fade--third {
+	background-image: radial-gradient(3em at 25% 25%, green 0%, red 75%, black 100%);
+}
+
+.fade--fourth {
+	background-image: repeating-radial-gradient(circle, black 0, black 0.1em, white 0.1em, white 0.2em);
+}
