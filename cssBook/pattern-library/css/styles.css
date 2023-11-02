@@ -1,0 +1,60 @@
+:root {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+}
+
+/*
+Media
+
+Отображает изображение и/или содержимое тела рядом друг с другом
+
+Markup:
+<div class="media media--right">
+    <img class="media__image" src="runner.png">
+    <div class="media__body">
+        <h4>Физкультура</h4>
+        <p>
+            Физическая подготовка &mdash; важная составляющая
+            профилактики травматизма. Сосредоточтесь
+            на своем теле &mdash; особенно на ногах.
+        </p>
+    </div>
+</div>
+
+Styleguide Media
+*/
+.media {
+	padding: 1.5em;
+	background-color: #eee;
+	border-radius: 0.5em;
+}
+
+.media::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.media__image {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.media__body {
+	overflow: auto;
+	margin-top: 0;
+}
+
+.media__body > h4 {
+	margin-top: 0;
+}
