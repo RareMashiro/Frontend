@@ -83,8 +83,8 @@ a:active {
 }
 
 .hero {
-	background: url(runner.png) no-repeat;
-	background-size: contain;
+	background: url(collaboration.jpg) no-repeat;
+	background-size: cover;
 	margin-bottom: 2.5rem;
 }
 .hero__inner {
@@ -116,3 +116,34 @@ a:active {
 	color: var(--white);
 	border: none;
 }
+
+.container {
+	margin: 0 auto;
+	max-width: 1080px;
+}
+
+.title-row {
+	display: flex;
+}
+.tite-row > * {
+	flex: 1;
+}
+
+.title {
+	background-color: var(--white);
+	border-radius: 0.3em;
+}
+
+.page-footer {
+	margin-top: 3em;
+	padding: 1em 0;
+	background-color: var(--light-gray);
+	color: var(--gray);
+}
+.page-footer__inner {
+	margin: 0 auto;
+	max-width: 1080px;
+	text-align: center;
+	font-size: 0.8rem;
+}
+
