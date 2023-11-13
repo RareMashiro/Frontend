@@ -5,7 +5,62 @@
 
 'use strict'
 
+// let num = [0, 1, 2, 5];
 
+// num = new Proxy(num, {
+//     get(targ, prop) {
+//         if(prop in targ) {
+//             return targ[prop];
+//         } else {
+//             return 'Ошибка! Нет такого индекса в массиве';
+//         }
+//     }
+// })
+
+// alert(num[3]);
+// alert(num[123]);
+
+
+
+// let arr = [0, 0, 0];
+
+// arr = new Proxy(arr, {
+//     set(targ, prop, val) {
+//         if(typeof val === 'number') {
+//             targ[prop] = val;
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     }
+// });
+
+// arr.push(1);
+// arr.push(2);
+
+// alert(arr);
+
+// arr.push('LOL');
+
+// alert(arr);
+
+
+
+let user = {
+    name: 'Oleg',
+    age: 42,
+    _pass: 'afcds'
+}
+
+user = new Proxy(user, {
+    ownKeys(target) {
+        return Object.keys(target).filter(key => !key.startsWith('_'));
+    }
+});
+
+for(let keys in user) {
+    alert(keys);
+}
 
 </script>
 </body>
