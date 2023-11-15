@@ -1,7 +1,8 @@
 import { useCount } from '../../hooks/useCount';
+//import { useState } from 'react';
 
 export const FilmDetails = ({title, genre, seasonsCount}) => {
-    let [count, increment, decrement] = useCount(0);
+    let {count, increment, decrement} = useCount(0);
     return (
         <div>
             <p>{title || 'Неизвестный'}</p>

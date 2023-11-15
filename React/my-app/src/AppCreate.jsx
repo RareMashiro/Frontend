@@ -9,7 +9,6 @@ export const AppCreate = () => {
                 seasonsCount={FilmDetails.seasonsCount} 
                 genre={FilmDetails.genre} 
             />
-
             <footer />
         </div>
     )
