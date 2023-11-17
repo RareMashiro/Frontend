@@ -1,13 +1,16 @@
 import { useCount } from '../../hooks/useCount';
+import { FilmInfo } from '../FilmInfo/FilmInfo';
 //import { useState } from 'react';
 
 export const FilmDetails = ({title, genre, seasonsCount}) => {
     let {count, increment, decrement} = useCount(0);
     return (
         <div>
-            <p>{title || 'Неизвестный'}</p>
-            {Boolean(genre) && <p>genre</p>}
-            <p>{seasonsCount > 0 ? `Количество: ${seasonsCount}` : 'Нет'}</p>
+            <FilmInfo 
+                title={title}
+                genre={genre}
+                seasonsCount={seasonsCount}
+            />
             <div>
                 <button onClick={decrement}>-</button>
                 {count}
