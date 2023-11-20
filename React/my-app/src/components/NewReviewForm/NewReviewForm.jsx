@@ -1,4 +1,4 @@
-import { useReducer, useRef } from "react"
+import { useEffect, useReducer, useRef } from "react"
 import { FORM_ACTIONS, reducer } from "../../hooks/reducer";
 
 const initialState = {
@@ -9,6 +9,14 @@ const initialState = {
 
 export const NewReviewForm = () => {
     const ref = useRef();
+
+    useEffect(() => {
+        if(ref.current) {
+            ref.current.focus();
+        }
+
+        return () => {}
+    }, [])
     
     const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -21,6 +29,7 @@ export const NewReviewForm = () => {
             <label>
                 Name:
                 <input
+                ref={ref}
                     value={state.name}
                     onChange={onNameChange}
                     type="text"
