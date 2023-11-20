@@ -1,0 +1,166 @@
+:root {
+	box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Helvetica, Arial, sans-serif;
+	margin: 0;
+}
+
+/*
+Media
+
+Отображает изображение и/или содержимое тела рядом друг с другом
+
+Markup:
+<div class="media media--right">
+    <img class="media__image" src="runner.png">
+    <div class="media__body">
+        <h4>Физкультура</h4>
+        <p>
+            Физическая подготовка &mdash; важная составляющая
+            профилактики травматизма. Сосредоточтесь
+            на своем теле &mdash; особенно на ногах.
+        </p>
+    </div>
+</div>
+
+Styleguide Media
+*/
+.media {
+	padding: 1.5em;
+	background-color: #eee;
+	border-radius: 0.5em;
+}
+
+.media::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.media__image {
+	float: left;
+	margin-right: 1.5em;
+}
+
+.media__body {
+	overflow: auto;
+	margin-top: 0;
+}
+
+.media__body > h4 {
+	margin-top: 0;
+}
+
+/*
+Buttons 
+
+Кнопки бывают разного размера и цвета. 
+Вы можете использовать кнопки разных 
+видов на одной странице.
+
+Markup:
+<button class="button {{modifier_class}}">
+	нажмите меня
+</button>
+
+.button--success - зеленая кнопка оповещения
+.button--danger - красная предупреждающая кнопка
+.button--small - маленькая кнопка
+.button--large - большая кнопка
+
+Styleguide Buttons
+*/
+.button {
+	padding: 1em 1.25em;
+	border: 1px solid #265559;
+	border-radius: 0.2em;
+	background-color: transparent;
+	font-size: 0.8rem;
+	color: #333;
+	font-weight: bold;
+}
+
+.button--success {
+	border-color: #cfe8c9;
+	color: #fff;
+	background-color: #2f5926;
+}
+
+.button--danger {
+	border-color: #e8c9c9;
+	color: #fff;
+	background-color: #a92323;
+}
+
+.button--small {
+	font-size: 0.8rem;
+}
+
+.button--large {
+	font-size: 1.2rem;
+}
+
+/*
+Dropdown
+
+Меню. Нажмите кнопку, чтобы открыть/закрыть его.
+
+Используйте JavaScript-код для класса is-open, 
+чтобы открывать/закрывать меню.
+
+Markup:
+<div class="dropdown">
+	<button class="dropdown__toggle">Открыть меню</button>
+	<div class="dropdown__drawer">
+		Содержимое меню...
+	</div>
+</div>
+
+Styleguide Dropdown
+*/
+.dropdown {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown__toggle {
+	padding: 0.5em 2em 0.5em 1.5em;
+	border: 1px solid #ccc;
+	font-size: 1rem;
+	background-color: #eee;
+}
+
+.dropdown__toggle::after {
+	content: "";
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	border: 0.3em solid;
+	border-color: black transparent transparent;
+}
+
+.dropdown__drawer {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 2.1em;
+	min-width: 100%;
+	background-color: #eee;
+}
+
+.dropdown.is-open .dropdown__toggle::after {
+	top: 0.7em;
+	border-color: transparent transparent black;
+}
+
+.dropdown.is-open .dropdown__drawer {
+	display: block;
+}

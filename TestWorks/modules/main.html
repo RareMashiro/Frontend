@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<body>
+    <script type="module" src="./one.js"></script>
+    <script type="module">
+        import {getUrl} from './one.js';
+        import {Help} from './one.js'
+
+        let connect = getUrl();
+
+        alert(`WOW! ${connect} is successful!`)
+        Help();
+    
+    </script>
+</body>
