@@ -1,0 +1,91 @@
+body {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.prev-button {
+	background-color: hsl(180, 50%, 50%);
+	border: 0;
+	color: #fff;
+	font-size: 1rem;
+	padding: 0.3em 1em;
+	transition-property: all;
+	transition-duration: 0.9s;
+}
+.prev-button:hover {
+	background-color: hsl(0, 50%, 50%);
+	border-radius: 1em;
+	font-size: 1.2em;
+}
+.prev-button:active {
+	background-color: hsl(270, 50%, 50%);
+	border-radius: 1.2em 2.4em;
+	font-size: 1.4em;
+}
+
+.container {
+	position: relative;
+	height: 30px;
+}
+.box {
+	position: absolute;
+	left: 0;
+	height: 30px;
+	width: 30px;
+	background-color: hsl(130, 50%, 50%);
+	border: 1px solid black;
+	transition: all 1s steps(3, end);
+}
+.container:hover .box {
+	left: 400px;
+	width: 300px;
+	height: 300px;
+	border: 1px solid yellow;
+}
+
+.dropdown__toggle {
+	display: block;
+	margin-top: 2em;
+	padding: 0.5em 1em;
+	border: 1px solid hsl(280, 10% 80%);
+	color: hsl(280, 30% 60%);
+	background-color: white;
+	font: inherit;
+	text-decoration: none;
+	transition: background-color 0.2s linear;
+}
+.dropdown__toggle:hover {
+	background-color: hsl(280 15% 95%);
+}
+.dropdown__drawer {
+	position: absolute;
+	background-color: white;
+	width: 10em;
+	height: 0;
+	overflow: hidden;
+	transition: height 0.3s ease-out;
+}
+.dropdown.is-open .dropdown__drawer {
+	height: auto;
+}
+
+.menu {
+	padding-left: 0;
+	margin: 0;
+	list-style: none;
+}
+.menu > li + li > a {
+	border-top: 0;
+}
+.menu > li > a {
+	display: block;
+	padding: 0.5em 1em;
+	color: hsl(280, 40%, 60%);
+	background-color: white;
+	text-decoration: none;
+	transition: all 0.2s linear;
+	border: 1px solid hsl(280, 10%, 80%);
+}
+.menu > li > a:hover {
+	background-color: hsl(280, 15%, 95%);
+	color: hsl(280, 25%, 10%);
+}

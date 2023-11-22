@@ -1,0 +1,16 @@
+body {
+	background-color: hsl(210, 80%, 20%);
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+img {
+	max-width: 100%;
+}
+
+.card {
+	padding: 0.5em;
+	margin: 5em auto;
+	background-color: white;
+	max-width: 300px;
+	transform: translate(20px, 0) rotate(15deg);
+}
