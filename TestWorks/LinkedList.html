@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+'use strict'
+
+const list1 = {
+	val: 2,
+	next: {
+        val: 4,
+        next: {
+            val: 3,
+            next: null
+        }
+    }
+};
+
+const list2 = {
+	val: 5,
+	next: {
+        val: 6,
+        next: {
+            val: 4,
+            next: null
+        }
+    }
+};
+
+function strSum(list) {
+	let s = '';
+	
+	while(list) {
+		s += list.val;
+		list = list.next;
+	}
+	
+	return s;
+}
+
+function merge(list1, list2) {
+	const s1 = strSum(list1);
+	const s2 = strSum(list2);
+	const sum = s1/1 + s2/1;
+	newList(sum);
+}
+
+merge(list1, list2);
+
+function newList(num) {
+    class ListNode {
+        constructor(data) {
+            this.data = data;
+            this.next = null;
+            }
+    }
+
+    class LinkedList {
+        constructor(head = null) {
+            this.head = head;
+        }
+    }
+
+    let sum = num;
+    let mainNode = new ListNode(sum%10);
+    sum = sum/10;
+    
+    function count(mainNode) {
+        if(sum > 0) {
+            let node = new ListNode(Math.floor(sum%10));
+            sum = sum/10;
+            mainNode.next = node;
+            if(sum >= 1) count(mainNode.next);
+        }
+            
+    }
+
+    count(mainNode);
+
+    let list = new LinkedList(mainNode);
+
+    return alert(JSON.stringify(list, null, 2));
+}
+
+</script>
+</body>
+</html>

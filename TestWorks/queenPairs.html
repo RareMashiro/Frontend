@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+'use strict'
+
+let l = [1, 2];
+
+function pairs(rookcoords) {
+    const rowDict = {};
+    const colDict = {};
+    const leftDict = {};
+    const rightDict = {};
+
+    function placeRook(metric, key) {
+        if(!metric.includes(key)) metric[key] = 0;
+        metric[key] += 1;
+    }
+
+    function countPairs(metric) {
+        let pairs = 0;
+        for(let key of metric) {
+            pairs += metric[key] - 1;
+        }
+        return pairs;
+    }
+
+    for(let [row, col] of rookcoords) {
+        placeRook(rowDict, row);
+        placeRook(colDict, col);
+        placeRook(leftDict, i+j);
+        placeRook(rightDict, i-j);
+    }
+
+    return countPairs(rowDict) + countPairs(colDict) + countPairs(leftDict) + countPairs(rightDict);
+
+}
+
+pairs(str);
+
+</script>
+</body>
+</html>

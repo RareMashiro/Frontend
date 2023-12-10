@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+'use strict'
+
+let s = 'Hello, world!';
+
+function createGistGramm(s) {
+    const dict = {};
+    let max = 0;
+
+    for(let val of s) {
+        if(!dict[val]) dict[val] = 0;
+        dict[val] += 1;
+        max = Math.max(max, dict[val]);
+    }
+
+    let sorted = Object.keys(dict).sort();
+
+    for(let i = max; i > 0; i--) {
+        for(let val of sorted) {
+            if(dict[val] >= i) {
+                console.log('#', '\n');
+            } else {
+                console.log(' ', '\n');
+            }
+        }
+    }
+
+}
+
+createGistGramm(s);
+
+</script>
+</body>
+</html>

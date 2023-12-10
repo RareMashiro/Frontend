@@ -5,7 +5,33 @@
 
 'use strict'
 
+function MinStack() {
+    this.stack = [];
+}
 
+MinStack.prototype.push = function(val) {
+    this.stack.push(val);
+}
+
+MinStack.prototype.pop = function() {
+    this.stack.pop();
+}
+
+MinStack.prototype.top = function() {
+    const len = this.stack.length-1;
+    return this.stack[len];
+}
+
+MinStack.prototype.getMin = function(val) {
+    return Math.min.apply(null, this.stack);
+}
+
+let obj = new MinStack();
+obj.push(10);
+obj.push(20);
+obj.push(30);
+alert(obj.top());
+alert(obj.getMin());
 
 </script>
 </body>
