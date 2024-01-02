@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+'use strict'
+
+function flatten1(...data) {
+	const result = [];
+	for(let i = 0; i < data.length; i++) {
+		const currEl = data[i];
+		if(Array.isArray(currEl)) {
+			result.push(...flatten1(...currEl));
+		} else {
+			result.push(currEl);
+		}
+	}
+	
+	return result;
+}
+
+function flatten2(...data) {
+	return data.reduce((acc, item) => {
+		return Array.isArray(item) ? acc.concat(flatten2(...item)) : acc.concat(item)
+	}, [])
+}
+
+function flatten3(...stack) {
+	const result = [];
+	
+	while(stack.length) {
+		const item = stack.shift();
+		if(Array.isArray(item)) {
+			stack.unshift(...item);
+		}
+		 else result.push(item);
+	}
+	
+	return result;
+}
+
+// console.log(flatten3(1, 2, [3, 4]));
+
+function polishMath(exp) {
+	const arr = exp.split(' ');
+	const stack = [];
+	
+	while(arr.length) {
+		const el = arr.pop();
+		const numEl = Number(el);
+		
+		if(!isNan(numEl)) {
+			stack.push(numEl);
+			continue;
+		}
+		
+		const fnum = stack.pop();
+		const snum = stack.pop();
+		
+		switch(el) {
+			case '+':
+				stack.push(fnum + snum);
+				break;
+			case '-':
+				stack.push(fnum - snum)
+				break;
+			case '/':
+				stack.push(fnum / snum)
+				break;
+			case '*':
+				stack.push(fnum * snum)
+				break;
+		}
+	}
+	
+	return alert(stack[0]);
+}
+
+// задача: дан массив покупателей где число = время, количество касс
+// найти максимальное время обслуживания
+
+function queueTime(customers, n) {
+	if(!customers.length) return 0;
+	
+	const queue = [...customers];
+	const tills = Array(Math.min(n, customers.length)).fill(0);
+	while(queue.length) {
+		const customer = queue.shift();
+		const tillMinId = tills.indexOf(Math.min(...tills));
+		tills[tillMinId] += customer;
+	}
+
+	return Math.max(...tills);
+}
+
+console.log(queueTime([2, 2, 3, 3, 4, 4], 2), 9)
+
+</script>
+</body>
+</html>

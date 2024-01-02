@@ -3,31 +3,15 @@
 <head>
 <script>
 
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const n = -7;
 
-function inverse(arr, num) {
-  let mas;
-  let vax;
-  let res;
-  
-  if(num >= 0)  {
-    mas = arr.slice(0, num).reverse();
-    vax = arr.slice(num, arr.length);
-    res = mas.concat(vax);
-
-  } else if(num < 0) {
-    mas = arr.slice(num, arr.length).reverse();
-    vax = arr.slice(0, num);
-    res = vax.concat(mas);
-
-  } else {
-    res = arr.reverse();
-  
-  }
-  return res;
+function inverse(arr, n) {
+	if(n >= 0) return console.log(arr.slice(0, n).concat(arr.slice(n).reverse()));
+	return console.log(arr.slice(0, arr.length+n).reverse().concat(arr.slice(n)));
 }
 
-alert(inverse(arr));
+inverse(arr, n)
 
 </script>
 </head>

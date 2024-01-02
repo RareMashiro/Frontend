@@ -5,33 +5,17 @@
 
 'use strict'
 
-function MinStack() {
-    this.stack = [];
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const n = -7;
+
+// alert(arr.slice(-3));
+
+function inverse(arr, n) {
+	if(n >= 0) return console.log(arr.slice(0, n).concat(arr.slice(n).reverse()));
+	return console.log(arr.slice(0, arr.length+n).reverse().concat(arr.slice(n)));
 }
 
-MinStack.prototype.push = function(val) {
-    this.stack.push(val);
-}
-
-MinStack.prototype.pop = function() {
-    this.stack.pop();
-}
-
-MinStack.prototype.top = function() {
-    const len = this.stack.length-1;
-    return this.stack[len];
-}
-
-MinStack.prototype.getMin = function(val) {
-    return Math.min.apply(null, this.stack);
-}
-
-let obj = new MinStack();
-obj.push(10);
-obj.push(20);
-obj.push(30);
-alert(obj.top());
-alert(obj.getMin());
+inverse(arr, n)
 
 </script>
 </body>
