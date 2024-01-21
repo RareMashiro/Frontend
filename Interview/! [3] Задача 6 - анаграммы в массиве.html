@@ -3,38 +3,28 @@
 <head>
 <script>
 
+'use strict'
+
 let words = ['Привет', 'мир', 'тевирп', 'я', 'еду', 'в', 'Рим', 'РиВетп'];
 
-function anagram(arr) {
-  let mas = [];
-  let enc = [];
-  let count = 1;
-  
-  for(let i = 0; i < arr.length; i++) {
-    mas.push(arr[i].toLowerCase().split('').sort().join(''));
-	
-  }
-  
-  mas = mas.sort();
-  let prev = mas[0];
-  
-  for(let n = 1; n < mas.length; n++ ) {
-    if(mas[n] !== prev) {
-	  if(count >= 2) enc.push(` (${count}: ${prev})`);
-	  count = 1;
-	  prev = mas[n];
-	  
-	} else {
-	  count++;
-	  
-	}
-	
-  }
-  return enc;
+function anagramm(words) {
+    const map = new Map();
+    const result = [];
 
+    for(let i = 0; i < words.length; i++) {
+        const el = words[i].toLowerCase().split('').sort().join('');
+        if(!map.has(el)) map.set(el, 1);
+        else map.set(el, map.get(el) + 1);
+    }
+
+    for(let [key, val] of map.entries()) {
+        if(val >=2 ) result.push(`(${key}: ${val})`)
+    }
+
+    console.log(result);
 }
 
-alert(anagram(words));
+anagramm(words);
 
 </script>
 </head>

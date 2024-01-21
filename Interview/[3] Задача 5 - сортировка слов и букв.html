@@ -3,18 +3,21 @@
 <head>
 <script>
 
-let words = "oleg will make me cry"
+const words = 'hello my name is Will';
 
-function sort(str) {
-  str = str.split(' ').sort();
-  str = str.map(item => item = item.split('').sort().join(''));
-  str = str.map(item => item = item[0].toUpperCase() + item.slice(1))
-  str = str.join(' ');
+function sort(words) {
+	words = words.split(' ').map(item => {
+		return item.toLowerCase().split('').sort().join('');
+	});
 
-  return str;
+	words = words.sort().map(item => {
+		return item[0].toUpperCase() + item.slice(1);
+	})
+
+	return console.log(words);
 }
 
-alert(sort(words));
+sort(words);
 
 </script>
 </head>

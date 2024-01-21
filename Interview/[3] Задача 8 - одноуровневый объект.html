@@ -3,35 +3,39 @@
 <head>
 <script>
 
-let person = {
-  name: 'Oleg',
-  age: 24,
-  skills: {
-    first: 'Punch',
-	  second: 'Roll',
-	  ultimate: 'To dead',
-	  describe: {
-	    info: 'LOOL',
-	    prices: 1234
-	  }
-  }
+const obj = {
+	a: 5,
+	b: 6,
+	c: {
+		d: 7,
+		e: {
+			g: 2,
+			l: 8
+		},
+		f: 9
+	}
 }
 
-window.creature = {};
+function plainify() {
+	const result = {};
 
-function plainify(obj) {
-  
-  for(let [key, value] of Object.entries(obj)) {
-	  
-    if(typeof value === 'object') plainify(value);
-	  else creature[key] = value;
-	
-  }
-  
-  return JSON.stringify(creature, null, 2);
+	return function check(obj) {
+		for(let [key, val] of Object.entries(obj)) {
+			if(typeof val === 'object') {
+				check(val);
+			} else {
+				result[key] = val;
+			}
+		}
+
+		return JSON.stringify(result, null, 2);
+	}
 }
 
-alert(plainify(person));
+let temp = plainify();
+alert(temp(obj));
+
+
 
 </script>
 </head>
